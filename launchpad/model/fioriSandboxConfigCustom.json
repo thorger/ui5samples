@@ -1,0 +1,333 @@
+{  
+   "services":{  
+      "LaunchPage":{  
+         "adapter":{  
+            "config":{  
+               "catalogs":[  
+                  {  
+                     "id":"sample_catalog",
+                     "title":"Sample Application Catalog",
+                     "tiles":[  
+                        {  
+                           "id":"todefaultapp",
+                           "title":"Default Application",
+                           "size":"1x1",
+                           "tileType":"sap.ushell.ui.tile.StaticTile",
+                           "properties":{  
+                              "chipId":"catalogTile_00",
+                              "title":"Default Application",
+                              "info":"",
+                              "icon":"sap-icon://Fiori2/F0001",
+                              "targetURL":"#Action-todefaultapp"
+                           }
+                        }
+                     ]
+                  },
+                  {  
+                     "id":"sap_claim_management_for_auto_catalog",
+                     "title":"SAP Claim Management for Auto Catalog",
+                     "tiles":[  
+                        {  
+                           "id":"Paymentfrequency",
+                           "title":"SAP Claim Management for Auto",
+                           "size":"1x1",
+                           "tileType":"sap.ushell.ui.tile.StaticTile",
+                           "properties":{  
+                              "chipId":"catalogTile_01",
+                              "title":"Prepare Notification for Auto",
+                              "info":"Prepare Notification",
+                              "icon":"sap-icon://flight",
+                              "targetURL":"#Notification-create"
+                           }
+                        }
+                     ]
+                  },
+                  {  
+                     "id":"sap_policy_management_for_auto_catalog",
+                     "title":"SAP Policy Management for Auto Catalog",
+                     "tiles":[  
+                        {  
+                           "id":"Paymentfrequency",
+                           "title":"SAP Policy Management for Auto",
+                           "size":"1x1",
+                           "tileType":"sap.ushell.ui.tile.StaticTile",
+                           "properties":{  
+                              "chipId":"catalogTile_02",
+                              "title":"Change Payment Frequency",
+                              "info":"",
+                              "icon":"sap-icon://flight",
+                              "targetURL":"#Paymentfrequency-change"
+                           }
+                        }, {  
+                           "id":"ChangeapplicationManage",
+                           "title":"SAP Policy Management for Auto",
+                           "size":"1x1",
+                           "tileType":"sap.ushell.ui.tile.StaticTile",
+                           "properties":{  
+                              "chipId":"catalogTile_02",
+                              "title":"Manage Change Application",
+                              "info":"",
+                              "icon":"sap-icon://flight",
+                              "targetURL":"#Changeapplication-manage"
+                           }
+                        }, {  
+                           "id":"PolicyHolderChange",
+                           "title":"SAP Policy Management for Auto",
+                           "size":"1x1",
+                           "tileType":"sap.ushell.ui.tile.StaticTile",
+                           "properties":{  
+                              "chipId":"catalogTile_02",
+                              "title":"Change Policyholder",
+                              "info":"",
+                              "icon":"sap-icon://flight",
+                              "targetURL":"#PolicyHolder-change"
+                           }
+                        }, {  
+                           "id":"BeneficiaryChange",
+                           "title":"SAP Policy Management for Auto",
+                           "size":"1x1",
+                           "tileType":"sap.ushell.ui.tile.StaticTile",
+                           "properties":{  
+                              "chipId":"catalogTile_02",
+                              "title":"Change Beneficiary",
+                              "info":"",
+                              "icon":"sap-icon://flight",
+                              "targetURL":"#Beneficiary-change"
+                           }
+                        }, {  
+                           "id":"ChangeBenefitPremium",
+                           "title":"SAP Policy Management for Auto",
+                           "size":"1x1",
+                           "tileType":"sap.ushell.ui.tile.StaticTile",
+                           "properties":{  
+                              "chipId":"catalogTile_02",
+                              "title":"Change Benefi Premium",
+                              "info":"",
+                              "icon":"sap-icon://flight",
+                              "targetURL":"#ChangeBenefitPremium-change"
+                           }
+                        }, 
+                        {  
+                           "id":"ChangeDuration",
+                           "title":"SAP Policy Management for Auto",
+                           "size":"1x1",
+                           "tileType":"sap.ushell.ui.tile.StaticTile",
+                           "properties":{  
+                              "chipId":"catalogTile_02",
+                              "title":"Change Duration",
+                              "info":"",
+                              "icon":"sap-icon://flight",
+                              "targetURL":"#ChangeDuration-change"
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "groups":[  
+                  {  
+                     "id":"sample_group",
+                     "title":"Sample Applications",
+                     "isPreset":true,
+                     "isVisible":false,
+                     "isGroupLocked":false,
+                     "tiles":[  
+                        {  
+                           "id":"todefaultapp",
+                           "title":"Default Application",
+                           "size":"1x1",
+                           "tileType":"sap.ushell.ui.tile.StaticTile",
+                           "properties":{  
+                              "chipId":"catalogTile_00",
+                              "title":"Default Application",
+                              "info":"",
+                              "icon":"sap-icon://Fiori2/F0001",
+                              "targetURL":"#Action-todefaultapp"
+                           }
+                        }
+                     ]
+                  },
+                  {  
+                     "id":"sap_claim_management_for_auto_group",
+                     "title":"SAP Claim Management for Auto",
+                     "isPreset":true,
+                     "isVisible":true,
+                     "isGroupLocked":false,
+                     "tiles":[  
+                        {  
+                           "id":"NotificationCreate",
+                           "title":"Prepare Notification for Auto",
+                           "size":"1x1",
+                           "tileType":"sap.ushell.ui.tile.StaticTile",
+                           "properties":{  
+                              "chipId":"catalogTile_01",
+                              "title":"Prepare notification for Auto",
+                              "info":"Prepare Notification",
+                              "icon":"sap-icon://create",
+                              "targetURL":"#Notification-create"
+                           }
+                        }
+                     ]
+                  },
+                  {  
+                     "id":"sap_policy_management_for_auto_group",
+                     "title":"SAP Policy Management for Auto",
+                     "isPreset":true,
+                     "isVisible":true,
+                     "isGroupLocked":false,
+                     "tiles":[  
+                        {  
+                           "id":"MyInbox",
+                           "title":"Default Application",
+                           "size":"1x1",
+                           "tileType":"sap.ushell.ui.tile.StaticTile",
+                           "properties":{  
+                              "chipId":"catalogTile_01",
+                              "title":"My Inbox",
+                              "info":"",
+                              "icon":"sap-icon://complete",
+                              "targetURL":"#"
+                           }
+                        },
+                        {  
+                           "id":"ChangeapplicationManage",
+                           "title":"Default Application",
+                           "size":"1x1",
+                           "tileType":"sap.ushell.ui.tile.StaticTile",
+                           "properties":{  
+                              "chipId":"catalogTile_02",
+                              "title":"Manage Change Application",
+                              "info":"",
+                              "icon":"sap-icon://task",
+                              "targetURL":"#Changeapplication-manage"
+                           }
+                        },
+                        {  
+                           "id":"PolicyHolderChange",
+                           "title":"Default Application",
+                           "size":"1x1",
+                           "tileType":"sap.ushell.ui.tile.StaticTile",
+                           "properties":{  
+                              "chipId":"catalogTile_02",
+                              "title":"Change Policyholder",
+                              "info":"",
+                              "icon":"sap-icon://citizen-connect",
+                              "targetURL":"#PolicyHolder-change"
+                           }
+                        },
+                        {  
+                           "id":"BeneficiaryChange",
+                           "title":"Default Application",
+                           "size":"1x1",
+                           "tileType":"sap.ushell.ui.tile.StaticTile",
+                           "properties":{  
+                              "chipId":"catalogTile_02",
+                              "title":"Change Beneficiary",
+                              "info":"",
+                              "icon":"sap-icon://opportunities",
+                              "targetURL":"#Beneficiary-change"
+                           }
+                        },
+                        {  
+                           "id":"Paymentfrequency",
+                           "title":"Default Application",
+                           "size":"1x1",
+                           "tileType":"sap.ushell.ui.tile.StaticTile",
+                           "properties":{  
+                              "chipId":"catalogTile_01",
+                              "title":"Change Payment Frequency",
+                              "info":"",
+                              "icon":"sap-icon://time-overtime",
+                              "targetURL":"#Paymentfrequency-change"
+                           }
+                        },
+                        {  
+                           "id":"ChangeBenefitPremium",
+                           "title":"Default Application",
+                           "size":"1x1",
+                           "tileType":"sap.ushell.ui.tile.StaticTile",
+                           "properties":{  
+                              "chipId":"catalogTile_02",
+                              "title":"Change Benefit Premium",
+                              "info":"",
+                              "icon":"sap-icon://collections-insight",
+                              "targetURL":"#ChangeBenefitPremium-change"
+                           }
+                        },
+                        {  
+                           "id":"ChangeDuration",
+                           "title":"Default Application",
+                           "size":"1x1",
+                           "tileType":"sap.ushell.ui.tile.StaticTile",
+                           "properties":{  
+                              "chipId":"catalogTile_02",
+                              "title":"Change Duration",
+                              "info":"",
+                              "icon":"sap-icon://instance",
+                              "targetURL":"#ChangeDuration-change"
+                           }
+                        }
+                     ]
+                  }
+               ]
+            }
+         }
+      },
+      "NavTargetResolution":{  
+         "adapter":{  
+            "config":{  
+               "applications":{  
+                  "Action-todefaultapp":{  
+                     "_comment":"default application as explicit navigation target",
+                     "additionalInformation":"SAPUI5.Component=sap.ushell.demo.FioriSandboxDefaultApp",
+                     "applicationType":"URL",
+                     "url":"/SAPUI5LIB/sapui5-sdk-dist-1.29.0-static/test-resources/sap/ushell/demoapps/FioriSandboxDefaultApp",
+                     "description":"Default App : shows statically registered apps (fioriSandboxConfig.js) "
+                  },
+                  "Paymentfrequency-change":{  
+                     "additionalInformation":"SAPUI5.Component=change.paymentfrequency",
+                     "applicationType":"URL",
+                     "url":"/fs.ipw.change.paymentfrequency/src/main/webapp/",
+                     "description":"Payment Frequency Change"
+                  },
+                  "Beneficiary-change":{  
+                     "additionalInformation":"SAPUI5.Component=ChangeBeneficiary",
+                     "applicationType":"URL",
+                     "url":"/fs.ipw.change.beneficiary/src/main/webapp/",
+                     "description":"Beneficiary Change"
+                  },
+                  "Notification-create":{  
+                     "additionalInformation":"SAPUI5.Component=auto.create.notification",
+                     "applicationType":"URL",
+                     "url":"/fs.ipw.cm.auto.create.notification/src/main/webapp/",
+                     "description":"Create Notification"
+                  },
+                  "Changeapplication-manage":{  
+                     "additionalInformation":"SAPUI5.Component=manage.change",
+                     "applicationType":"URL",
+                     "url":"/fs.ipw.manage.changeapplication/src/main/webapp/",
+                     "description":"Change/Manage Application"
+                  },
+                  "PolicyHolder-change":{  
+                     "additionalInformation":"SAPUI5.Component=ChangePolicyholder",
+                     "applicationType":"URL",
+                     "url":"/com.sap.fs.ipw.ipw2.ui5.change.policyholder/src/main/webapp/",
+                     "description":"Policyholder Change"
+                  },
+                  "ChangeBenefitPremium-change":{  
+                     "additionalInformation":"SAPUI5.Component=change.benefit.premium",
+                     "applicationType":"URL",
+                     "url":"/fs.ipw.change.benefit.premium/src/main/webapp/",
+                     "description":"Beneficiary Change"
+                  },
+                  "ChangeDuration-change":{  
+                     "additionalInformation":"SAPUI5.Component=change.duration",
+                     "applicationType":"URL",
+                     "url":"/fs.ipw.change.duration/src/main/webapp/",
+                     "description":"Duration Change"
+                  }
+               }
+            }
+         }
+      }
+   }
+}

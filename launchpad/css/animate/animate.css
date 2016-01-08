@@ -1,0 +1,142 @@
+/* ======================================================================== */
+/* @Adam fiori flower animate*/
+/* ======================================================================== */
+@keyframes rotateBlossom {
+  100% {
+    transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+  }
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+@keyframes fadeLeaf1-1 {
+  0% { opacity: 0.2; }
+  50% { opacity: 1; }
+  100% { opacity: 0.2; }
+}
+
+@keyframes fadeLeaf1-2 {
+  0% { opacity: 0.2; }
+  50% { opacity: 1; }
+  100% { opacity: 0.2; }
+}
+
+@keyframes fadeLeaf1-3 {
+  0% { opacity: 0.2; }
+  50% { opacity: 1; }
+  100% { opacity: 0.2; }
+}
+
+@keyframes fadeLeaf1-4 {
+  0% { opacity: 0.2; }
+  50% { opacity: 1; }
+  100% { opacity: 0.2; }
+}
+
+@keyframes fadeLeaf1-5 {
+  0% { opacity: 0.2; }
+  50% { opacity: 1; }
+  100% { opacity: 0.2; }
+}
+
+
+@keyframes fadeLeaf2-1 {
+  0% { opacity: 0.2; }
+  50% { opacity: 1; }
+  100% { opacity: 0.2; }
+}
+
+@keyframes fadeLeaf2-2 {
+  0% { opacity: 0.2; }
+  50% { opacity: 1; }
+  100% { opacity: 0.2; }
+}
+
+@keyframes fadeLeaf2-3 {
+  0% { opacity: 0.2; }
+  50% { opacity: 1; }
+  100% { opacity: 0.2; }
+}
+
+@keyframes fadeLeaf2-4 {
+  0% { opacity: 0.2; }
+  50% { opacity: 1; }
+  100% { opacity: 0.2; }
+}
+
+@keyframes fadeLeaf2-5 {
+  0% { opacity: 0.2; }
+  50% { opacity: 1; }
+  100% { opacity: 0.2; }
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+@keyframes scaleLeaf1-1 {
+  100% {
+    transform: scale(1.5) rotate(0deg);
+    -moz-transform: scale(1.5) rotate(0deg);
+  }
+}
+
+@keyframes scaleLeaf1-2 {
+  100% {
+    transform: scale(1.5) rotate(77deg);
+    -moz-transform: scale(1.5) rotate(77deg);
+  }
+}
+
+@keyframes scaleLeaf1-3 {
+  100% {
+    transform: scale(1.5) rotate(144deg);
+    -moz-transform: scale(1.5) rotate(144deg);
+  }
+}
+  
+@keyframes scaleLeaf1-4 {
+  100% {
+    transform: scale(1.5) rotate(216deg);
+    -moz-transform: scale(1.5) rotate(216deg);
+  }
+}
+
+@keyframes scaleLeaf1-5 {
+  100% {
+    transform: scale(1.5) rotate(288deg);
+    -moz-transform: scale(1.5) rotate(288deg);
+  }
+}
+
+
+@keyframes scaleLeaf2-1 {
+  100% {
+    transform: scale(1.25) rotate(0deg);
+  }
+}
+
+@keyframes scaleLeaf2-2 {
+  100% {
+    transform: scale(1.25) rotate(77deg);
+  }
+}
+
+@keyframes scaleLeaf2-3 {
+  100% {
+    transform: scale(1.25) rotate(144deg);
+  }
+}
+
+@keyframes scaleLeaf2-4 {
+  100% {
+    transform: scale(1.25) rotate(216deg);
+  }
+}
+
+@keyframes scaleLeaf2-5 {
+  100% {
+    transform: scale(1.25) rotate(288deg);
+  }
+}
+
+

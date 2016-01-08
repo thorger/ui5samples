@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <link rel="stylesheet" type="text/css" href="css/NewBusinessScreen.css">
+        <link href="css/commons.css" rel="stylesheet" />
+        <link href="css/themes/default.css" rel="stylesheet" />
+        <link href="css/animate/animate.css" rel="stylesheet" />
+        <link href="css/animate/animate_chrome.css" rel="stylesheet" />
+        
+        <title>Launchpad Test</title>
+        
+        <script id="sap-ui-bootstrap"
+		        src="../resources/sap-ui-core.js"
+		        data-sap-ui-libs="sap.m"
+		        data-sap-ui-theme="sap_bluecrystal"
+		        data-sap-ui-xx-bindingSyntax="complex"
+		        data-sap-ui-resourceroots='{
+		            "sap.ui.ipw.ViewApp": "./"
+		        }'>
+        </script>
+
+        <script>
+        //The use of the Shell is to control the width of the app on the desktop. 
+        //On particularly large monitors, a full-width rendering of an application would be too wide. 
+        //Placing the app's core inside a Shell container will give you appropriate left and right vertical margins.
+        
+            sap.ui.getCore().attachInit(function() {
+                new sap.m.Shell({
+                    app: new sap.ui.core.ComponentContainer({
+                        height : "100%",
+                        name : "sap.ui.ipw.ViewApp"
+                    }),
+                    appWidthLimited : false
+                }).placeAt("content");
+            });
+
+        </script>
+    </head>
+    
+    <body class="sapUiBody" id="content" />
+    
+</html>

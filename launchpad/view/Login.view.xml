@@ -1,0 +1,44 @@
+<mvc:View  
+  controllerName="sap.ui.ipw.ViewApp.view.Login"
+  xmlns:core="sap.ui.core"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m">
+
+	<Page showNavButton="false" showHeader="false">
+		<content>
+			<VBox class="l_login_mainContent" width="100%">
+				<Panel class="l_login_form" id="panelForLogin">
+					<VBox>
+						<Label class="font_app_title" text="{i18n>login.title}"
+							textAlign="Center" design="Bold" width="100%" />
+						<Input id="inputTextForUsernameField"
+							class="bg_login_input shadow_login_input fontColor_login_input l_input_login"
+							placeholder="{i18n>login.username.placeholder}" width="100%" />
+						<Input id="inputPasswordForPasswordField"
+							class="bg_login_input shadow_login_input fontColor_login_input l_input_login"
+							placeholder="{i18n>login.password.placeholder}" type="Password"
+							width="100%" />
+				        <ComboBox
+				        	id="comboLanguageSelect"
+					        items="{
+					          path: 'csModel>/Languages',
+					          sorter: { path: 'Name' }
+					        }"
+					        placeholder="{i18n>login.language.placeholder}"
+					        width="100%"
+					        selectionChange="handleCountrySelect">
+				        	<core:Item key="{csModel>Key}" text="{csModel>Language}" />
+				        </ComboBox>					
+						<Button id="buttonForlogin" class="l_login_btn shadow_login_btn"
+							text="{i18n>login.submit}" press="performLogin" type="Emphasized"
+							width="100%" />
+					</VBox>
+				</Panel>
+			</VBox>
+		</content>
+		<!-- <footer> <Bar> <contentMiddle> <Button id="login-submit" text="{i18n>login.submit}" 
+			press="performLogin"> </Button> </contentMiddle> </Bar> </footer> -->
+	</Page>
+
+</mvc:View>
+

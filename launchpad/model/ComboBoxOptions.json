@@ -1,0 +1,16 @@
+{  
+   "Languages":[  
+      {  
+         "Language":"English",
+         "Key":"en"
+      },
+      {  
+         "Language":"Chinese",
+         "Key":"zf"
+      },
+      {  
+         "Language":"Korean",
+         "Key":"ko"
+      }
+   ]
+}
