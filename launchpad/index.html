@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
     <head>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -10,15 +10,15 @@
         <link href="css/animate/animate.css" rel="stylesheet" />
         <link href="css/animate/animate_chrome.css" rel="stylesheet" />
         
-        <title>Launchpad Test</title>
+        <title>SAP Quotation for Insurance</title>
         
         <script id="sap-ui-bootstrap"
-		        src="../resources/sap-ui-core.js"
+		        src="/SAPUI5LIB/sapui5-sdk-dist-1.29.0-static/resources/sap-ui-core.js"
 		        data-sap-ui-libs="sap.m"
 		        data-sap-ui-theme="sap_bluecrystal"
 		        data-sap-ui-xx-bindingSyntax="complex"
 		        data-sap-ui-resourceroots='{
-		            "myRoot": "./"
+		            "sap.ui.ipw.ViewApp": "./"
 		        }'>
         </script>
 
@@ -31,12 +31,11 @@
                 new sap.m.Shell({
                     app: new sap.ui.core.ComponentContainer({
                         height : "100%",
-                        name : "myRoot"
+                        name : "sap.ui.ipw.ViewApp"
                     }),
                     appWidthLimited : false
-                }).placeAt("content", "only");
+                }).placeAt("content");
             });
-
         </script>
     </head>
     

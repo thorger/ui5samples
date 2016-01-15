@@ -1,11 +1,11 @@
 (function() {
   "use strict";
-  jQuery.sap.declare("myRoot.Component");
-  jQuery.sap.require("myRoot.MyRouter");
+  jQuery.sap.declare("sap.ui.ipw.ViewApp.Component");
+  jQuery.sap.require("sap.ui.ipw.ViewApp.MyRouter");
   jQuery.sap.require("sap.ui.core.util.MockServer");
-  jQuery.sap.require("myRoot.model.Config");
+  jQuery.sap.require("sap.ui.ipw.ViewApp.model.Config");
 
-  sap.ui.core.UIComponent.extend("myRoot.Component", {
+  sap.ui.core.UIComponent.extend("sap.ui.ipw.ViewApp.Component", {
 
     metadata: {
       name: "IPW View App",
@@ -15,22 +15,22 @@
         libs: ["sap.m", "sap.ui.layout"],
         components: []
       },
-      rootView: "myRoot.view.App",
+      rootView: "sap.ui.ipw.ViewApp.view.App",
 
       config: {
         fullWidth: true,
         resourceBundle: "i18n/messageBundle.properties",
         serviceConfig: {
-          name: myRoot.model.Config.serviceName,
-          serviceUrl: myRoot.model.Config.serviceUrl
+          name: sap.ui.ipw.ViewApp.model.Config.serviceName,
+          serviceUrl: sap.ui.ipw.ViewApp.model.Config.serviceUrl
         }
       },
 
       routing: {
         config: {
-          routerClass: myRoot.MyRouter,
+          routerClass: sap.ui.ipw.ViewApp.MyRouter,
           viewType: "XML",
-          viewPath: "myRoot.view",
+          viewPath: "sap.ui.ipw.ViewApp.view",
           targetAggregation: "pages",
           clearTarget: false
         },
@@ -68,7 +68,7 @@
 
       // always use absolute paths relative to our own component
       // (relative paths will fail if running in the Fiori Launchpad)
-      var rootPath = jQuery.sap.getModulePath("myRoot");
+      var rootPath = jQuery.sap.getModulePath("sap.ui.ipw.ViewApp");
 
       // set i18n model
       var i18nModel = new sap.ui.model.resource.ResourceModel({
