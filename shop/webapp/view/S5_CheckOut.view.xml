@@ -1,0 +1,90 @@
+<!-- This view provides an overview of the shopping cart and the 
+	delivery address, the user can then order the shopping cart -->
+<mvc:View controllerName="nw.epm.refapps.ext.shop.controller.S5_CheckOut" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form"
+	xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+	<Page navButtonPress="onNavBack" showNavButton="true" title="{i18n>xtit.checkout}">
+		<headerContent>
+			<Button binding="{path: '/ShoppingCarts(-1)', batchGroupId : 'checkOut'}" icon="sap-icon://cart" id="btnCheckOutHeader"
+				press="onShoppingCartPressed" text="{TotalQuantity}" tooltip="{i18n>xfld.addToCart}"/>
+		</headerContent>
+		<content>
+			<f:SimpleForm class="sapUiResponsiveMargin" columnsL="1" columnsM="1" editable="false" emptySpanL="4" emptySpanM="4" id="userDetailForm"
+				labelSpanL="3" labelSpanM="3" layout="ResponsiveGridLayout" maxContainerCols="2" minWidth="1024" title="{i18n>xtit.information}"
+				width="auto">
+				<f:content>
+					<Label id="customerNameLbl" text="{/#ShoppingCart/FormattedCustomerName/@sap:label}"/>
+					<Text id="customerNameTxt" text="{/ShoppingCarts(-1)/FormattedCustomerName}"/>
+					<Label id="addressLbl" text="{/#ShoppingCart/FormattedAddress/@sap:label}"/>
+					<Text id="addressTxt" text="{/ShoppingCarts(-1)/FormattedAddress}"/>
+				</f:content>
+			</f:SimpleForm>
+			<Table class="sapUiResponsiveMargin" growing="true" growingScrollToLoad="true" id="checkOutTable"
+				items="{path: '/ShoppingCarts(-1)/ShoppingCartItems', sorter: {path: 'Id', descending: false}, parameters: {countMode: 'Inline', expand: 'Product', select: 'Id,Quantity,SubTotal,CurrencyCode,Product/ImageUrl,Product/Name,Product/StockQuantity,Product/Description'}}"
+				width="auto">
+				<headerToolbar>
+					<Toolbar id="checkOutTableBar">
+						<Title class="sapMH4FontSize" id="checkOutTableTitle" text="{i18n>xtit.checkOutTable}"/>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<!-- Image -->
+					<Column hAlign="Left" id="imageColumn" minScreenWidth="Tablet" width="16%">
+						<header>
+							<Label id="imageLbl" text="{i18n>xfld.items}"/>
+						</header>
+					</Column>
+					<!-- Name + Availability -->
+					<Column hAlign="Left" id="productColumn" width="27%">
+						<header>
+							<Label id="productLbl" text="{/#Product/Name/@sap:label}" visible="{= !${device>/system/phone}}"/>
+						</header>
+					</Column>
+					<!-- Description -->
+					<Column demandPopin="true" hAlign="Left" id="descriptionColumn" minScreenWidth="Tablet" popinDisplay="Inline" width="19%">
+						<header>
+							<Label id="descriptionLbl" text="{/#ShoppingCartItem/Product/Description/@sap:label}"/>
+						</header>
+					</Column>
+					<!-- Quantity -->
+					<Column demandPopin="true" hAlign="Right" id="quantityColumn" minScreenWidth="Tablet" popinDisplay="Inline" width="19%">
+						<header>
+							<Label id="quantityLbl" text="{/#ShoppingCartItem/Quantity/@sap:label}"/>
+						</header>
+					</Column>
+					<!-- Subtotal & Total footer -->
+					<Column hAlign="Right" id="subTotalColumn" width="19%">
+						<header>
+							<Label id="subTotalLbl" text="{/#ShoppingCartItem/SubTotal/@sap:label}" visible="{= !${device>/system/phone}}"/>
+						</header>
+						<footer>
+							<ObjectNumber id="totalObjNumber" number="{path: '/ShoppingCarts(-1)/Total', formatter:'.formatter.formatAmount'}"
+								unit="{/ShoppingCarts(-1)/CurrencyCode}"/>
+						</footer>
+					</Column>
+				</columns>
+				<ColumnListItem>
+					<cells>
+						<!-- Image -->
+						<Image alt="{i18n>xfld.productImage}" class="sapUiSmallMarginTopBottom" decorative="false" densityAware="false" height="3rem"
+							id="productImage" src="{Product/ImageUrl}" width="3rem"/>
+						<!-- Name + Availability -->
+						<ObjectIdentifier id="productObjIdent" text="{path: 'Product/StockQuantity', formatter: '.formatter.formatAvailabilityText'}"
+							title="{Product/Name}"/>
+						<!-- Description -->
+						<Text id="productTxt" maxLines="2" text="{Product/Description}"/>
+						<!-- Quantity -->
+						<Text id="quantityTxt" text="{Quantity}" width="5rem"/>
+						<!-- Subtotal -->
+						<ObjectNumber id="subTotalObjNumber" number="{path: 'SubTotal', formatter:'.formatter.formatAmount'}" unit="{CurrencyCode}"/>
+					</cells>
+				</ColumnListItem>
+			</Table>
+		</content>
+		<footer>
+			<OverflowToolbar id="checkOutFooter">
+				<ToolbarSpacer/>
+				<Button id="btnBuyNow" press="onBuyNowPressed" text="{i18n>xbut.buyNow}" type="Emphasized"/>
+			</OverflowToolbar>
+		</footer>
+	</Page>
+</mvc:View>

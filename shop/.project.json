@@ -1,0 +1,16 @@
+{
+  "mockpreview": {
+    "mockUri": "/sap/opu/odata/sap/EPM_REF_APPS_SHOP_SRV/",
+    "loadCustomRequests": true,
+    "loadJSONFiles": true,
+    "metadataFilePath": "../localService/metadata.xml",
+    "mockRequestsFilePath": "../localService/MockRequests.js"
+  },
+  "generation": [
+    {
+      "templateId": "fiorireferenceapps.shop",
+      "templateVersion": "2.0.10",
+      "dateTimeStamp": "Wed, 06 Jan 2016 11:41:38 GMT"
+    }
+  ]
+}

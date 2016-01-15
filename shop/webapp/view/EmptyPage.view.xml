@@ -1,0 +1,5 @@
+<mvc:View controllerName="nw.epm.refapps.ext.shop.controller.EmptyPage" height="100%" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m">
+	<MessagePage description="{i18n>ymsg.pageNotFoundIntro}" id="shopEmptyPage" navButtonPress="onBackPressed" showNavButton="true"
+		text="{i18n>ymsg.pageNotFoundTitle}"/>
+</mvc:View>

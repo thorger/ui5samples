@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema Namespace="EPM_REF_APPS_SHOP" sap:schema-version="1" xml:lang="en" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+			<EntityType Name="Supplier" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="Id"/>
+				</Key>
+				<Property MaxLength="255" Name="ContactEmail" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+					sap:label="E-Mail" sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="10" Name="Id" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+					sap:label="Business Partner ID" sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="80" Name="Name" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Company"
+					sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="30" Name="Phone" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Phone"
+					sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="255" Name="Email" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="E-Mail"
+					sap:sortable="false" sap:updatable="false"/>
+				<Property Name="WebAddress" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="URI"
+					sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="164" Name="FormattedAddress" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+					sap:label="Address" sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="88" Name="FormattedContactName" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+					sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="30" Name="ContactPhone1" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+					sap:label="Phone" sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="30" Name="ContactPhone2" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+					sap:label="Mobile" sap:sortable="false" sap:updatable="false"/>
+			</EntityType>
+			<EntityType Name="MainCategory" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="Id"/>
+				</Key>
+				<Property MaxLength="40" Name="Id" Nullable="false" Type="Edm.String" sap:creatable="false" sap:label="Main Category" sap:updatable="false"/>
+				<Property MaxLength="40" Name="Name" Nullable="false" Type="Edm.String" sap:creatable="false" sap:label="Main Category"
+					sap:updatable="false"/>
+				<NavigationProperty FromRole="FromRole_SubCategoryMainCategories" Name="SubCategories"
+					Relationship="EPM_REF_APPS_SHOP.SubCategoryMainCategories" ToRole="ToRole_SubCategoryMainCategories"/>
+			</EntityType>
+			<EntityType Name="SubCategory" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="Id"/>
+				</Key>
+				<Property MaxLength="40" Name="Id" Nullable="false" Type="Edm.String" sap:creatable="false" sap:label="Category" sap:updatable="false"/>
+				<Property MaxLength="40" Name="Name" Nullable="false" Type="Edm.String" sap:creatable="false" sap:label="Category" sap:updatable="false"/>
+				<Property MaxLength="40" Name="MainCategoryId" Nullable="false" Type="Edm.String" sap:creatable="false" sap:label="Main Category"
+					sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="40" Name="MainCategoryName" Nullable="false" Type="Edm.String" sap:creatable="false" sap:label="Main Category"
+					sap:sortable="false" sap:updatable="false"/>
+				<NavigationProperty FromRole="ToRole_SubCategoryMainCategories" Name="MainCategory"
+					Relationship="EPM_REF_APPS_SHOP.SubCategoryMainCategories" ToRole="FromRole_SubCategoryMainCategories"/>
+			</EntityType>
+			<EntityType Name="Review" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="Id"/>
+				</Key>
+				<Property Name="ChangedAt" Nullable="false" Precision="0" Type="Edm.DateTime" sap:creatable="false" sap:label="Date" sap:updatable="false"/>
+				<Property Name="Comment" Type="Edm.String" sap:label="Rating Text"/>
+				<Property Name="HelpfulCount" Nullable="false" Type="Edm.Int32" sap:creatable="false" sap:label="Number of Responses" sap:updatable="false"/>
+				<Property Name="HelpfulForCurrentUser" Nullable="false" Type="Edm.Boolean" sap:creatable="false" sap:label="Helpful"/>
+				<Property Name="Id" Nullable="false" Type="Edm.Guid" sap:creatable="false" sap:label="Node Key" sap:updatable="false"/>
+				<Property Name="IsReviewOfCurrentUser" Nullable="false" Type="Edm.Boolean" sap:creatable="false" sap:updatable="false"/>
+				<Property MaxLength="10" Name="ProductId" Nullable="false" Type="Edm.String" sap:label="Product ID"/>
+				<Property Name="Rating" Nullable="false" Type="Edm.Int32" sap:label="Rating"/>
+				<Property MaxLength="88" Name="UserDisplayName" Nullable="false" Type="Edm.String" sap:creatable="false" sap:updatable="false"/>
+				<NavigationProperty FromRole="ToRole_ProductReviews" Name="Product" Relationship="EPM_REF_APPS_SHOP.ProductReviews"
+					ToRole="FromRole_ProductReviews"/>
+			</EntityType>
+			<EntityType Name="Product" sap:content-version="1" sap:service-version="1">
+				<Key>
+					<PropertyRef Name="Id"/>
+				</Key>
+				<Property Name="AverageRating" Nullable="false" Precision="4" Scale="2" Type="Edm.Decimal" sap:creatable="false" sap:label="Average Rating"
+					sap:updatable="false"/>
+				<Property MaxLength="255" Name="Name" Nullable="false" Type="Edm.String" sap:creatable="false" sap:label="Name" sap:updatable="false"/>
+				<Property MaxLength="255" Name="Description" Nullable="false" Type="Edm.String" sap:creatable="false" sap:label="Description"
+					sap:updatable="false"/>
+				<Property Name="StockQuantity" Nullable="false" Type="Edm.Int32" sap:creatable="false" sap:label="Availability" sap:updatable="false"/>
+				<Property MaxLength="3" Name="CurrencyCode" Nullable="false" Type="Edm.String" sap:creatable="false" sap:label="ISO code"
+					sap:updatable="false"/>
+				<Property Name="DimensionDepth" Nullable="false" Precision="13" Scale="3" Type="Edm.Decimal" sap:creatable="false" sap:label="Length"
+					sap:sortable="false" sap:unit="QuantityUnit" sap:updatable="false"/>
+				<Property Name="DimensionHeight" Nullable="false" Precision="13" Scale="3" Type="Edm.Decimal" sap:creatable="false" sap:label="Height"
+					sap:sortable="false" sap:unit="QuantityUnit" sap:updatable="false"/>
+				<Property MaxLength="3" Name="DimensionUnit" Nullable="false" Type="Edm.String" sap:creatable="false" sap:sortable="false"
+					sap:updatable="false"/>
+				<Property Name="DimensionWidth" Nullable="false" Precision="13" Scale="3" Type="Edm.Decimal" sap:creatable="false" sap:label="Width"
+					sap:sortable="false" sap:unit="QuantityUnit" sap:updatable="false"/>
+				<Property Name="HasReviewOfCurrentUser" Nullable="false" Type="Edm.Boolean" sap:creatable="false" sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="10" Name="Id" Nullable="false" Type="Edm.String" sap:creatable="false" sap:label="Product ID" sap:updatable="false"/>
+				<Property MaxLength="255" Name="ImageUrl" Nullable="false" Type="Edm.String" sap:creatable="false" sap:label="Image" sap:sortable="false"
+					sap:updatable="false"/>
+				<Property Name="IsFavoriteOfCurrentUser" Nullable="false" Type="Edm.Boolean" sap:creatable="false" sap:label="Is Favorite"
+					sap:sortable="false"/>
+				<Property Name="LastModified" Nullable="false" Precision="7" Type="Edm.DateTime" sap:creatable="false" sap:label="Time Stamp"
+					sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="40" Name="MainCategoryId" Nullable="false" Type="Edm.String" sap:creatable="false" sap:label="Main Category"
+					sap:updatable="false"/>
+				<Property MaxLength="40" Name="MainCategoryName" Nullable="false" Type="Edm.String" sap:creatable="false" sap:label="Main Category"
+					sap:updatable="false"/>
+				<Property MaxLength="10" Name="MeasureUnit" Nullable="false" Type="Edm.String" sap:creatable="false" sap:sortable="false"
+					sap:updatable="false"/>
+				<Property Name="Price" Nullable="false" Precision="15" Scale="2" Type="Edm.Decimal" sap:creatable="false" sap:label="Price"
+					sap:updatable="false"/>
+				<Property MaxLength="3" Name="QuantityUnit" Nullable="false" Type="Edm.String" sap:creatable="false" sap:label="Unit of Measure"
+					sap:semantics="unit-of-measure" sap:sortable="false" sap:updatable="false"/>
+				<Property Name="RatingCount" Nullable="false" Type="Edm.Int32" sap:creatable="false" sap:label="Number of Reviews" sap:updatable="false"/>
+				<Property MaxLength="40" Name="SubCategoryId" Nullable="false" Type="Edm.String" sap:creatable="false" sap:label="Category"
+					sap:updatable="false"/>
+				<Property MaxLength="40" Name="SubCategoryName" Nullable="false" Type="Edm.String" sap:creatable="false" sap:label="Category"
+					sap:updatable="false"/>
+				<Property MaxLength="10" Name="SupplierId" Nullable="false" Type="Edm.String" sap:creatable="false" sap:label="Business Partner ID"
+					sap:updatable="false"/>
+				<Property MaxLength="80" Name="SupplierName" Nullable="false" Type="Edm.String" sap:creatable="false" sap:label="Supplier"
+					sap:updatable="false"/>
+				<Property Name="WeightMeasure" Nullable="false" Precision="13" Scale="3" Type="Edm.Decimal" sap:creatable="false" sap:label="Weight"
+					sap:sortable="false" sap:unit="QuantityUnit" sap:updatable="false"/>
+				<Property MaxLength="3" Name="WeightUnit" Nullable="false" Type="Edm.String" sap:creatable="false" sap:sortable="false"
+					sap:updatable="false"/>
+				<NavigationProperty FromRole="FromRole_ProductImages" Name="Images" Relationship="EPM_REF_APPS_SHOP.ProductImages"
+					ToRole="ToRole_ProductImages"/>
+				<NavigationProperty FromRole="ToRole_ProductsSupplier" Name="Supplier" Relationship="EPM_REF_APPS_SHOP.ProductsSupplier"
+					ToRole="FromRole_ProductsSupplier"/>
+				<NavigationProperty FromRole="ToRole_ProductsSubCategory" Name="SubCategory" Relationship="EPM_REF_APPS_SHOP.ProductsSubCategory"
+					ToRole="FromRole_ProductsSubCategory"/>
+				<NavigationProperty FromRole="FromRole_ProductReviews" Name="Reviews" Relationship="EPM_REF_APPS_SHOP.ProductReviews"
+					ToRole="ToRole_ProductReviews"/>
+				<NavigationProperty FromRole="FromRole_ProductReviewAggregates" Name="ReviewAggregates"
+					Relationship="EPM_REF_APPS_SHOP.ProductReviewAggregates" ToRole="ToRole_ProductReviewAggregates"/>
+			</EntityType>
+			<EntityType Name="Currency" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="Code"/>
+				</Key>
+				<Property MaxLength="3" Name="Code" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="ISO code"
+					sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="15" Name="Text" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:sortable="false"
+					sap:updatable="false"/>
+			</EntityType>
+			<EntityType Name="DimensionUnit" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="Unit"/>
+				</Key>
+				<Property MaxLength="3" Name="Unit" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="ISO code"
+					sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="10" Name="Shorttext" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+					sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="30" Name="Text" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:sortable="false"
+					sap:updatable="false"/>
+			</EntityType>
+			<EntityType Name="QuantityUnit" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="Unit"/>
+				</Key>
+				<Property MaxLength="3" Name="Unit" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="ISO code"
+					sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="10" Name="Shorttext" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+					sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="30" Name="Text" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:sortable="false"
+					sap:updatable="false"/>
+			</EntityType>
+			<EntityType Name="WeightUnit" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="Unit"/>
+				</Key>
+				<Property MaxLength="3" Name="Unit" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="ISO code"
+					sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="10" Name="Shorttext" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+					sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="30" Name="Text" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:sortable="false"
+					sap:updatable="false"/>
+			</EntityType>
+			<EntityType Name="ReviewAggregate" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="ProductId"/>
+					<PropertyRef Name="Rating"/>
+				</Key>
+				<Property MaxLength="10" Name="ProductId" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+					sap:label="Product ID" sap:sortable="false" sap:updatable="false"/>
+				<Property Name="Rating" Nullable="false" Type="Edm.Int32" sap:creatable="false" sap:filterable="false" sap:sortable="false"
+					sap:updatable="false"/>
+				<Property Name="RatingCount" Nullable="false" Type="Edm.Int32" sap:creatable="false" sap:filterable="false" sap:sortable="false"
+					sap:updatable="false"/>
+			</EntityType>
+			<EntityType Name="ShoppingCartItem" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="Id"/>
+				</Key>
+				<Property Name="ShoppingCartId" Nullable="false" Type="Edm.Int16" sap:creatable="false" sap:updatable="false"/>
+				<Property MaxLength="10" Name="Id" Nullable="false" Type="Edm.String" sap:creatable="false" sap:label="Item Position" sap:updatable="false"/>
+				<Property MaxLength="10" Name="ProductId" Nullable="false" Type="Edm.String" sap:creatable="false" sap:label="Product ID"
+					sap:updatable="false"/>
+				<Property Name="Quantity" Nullable="false" Type="Edm.Int32" sap:creatable="false" sap:label="Quantity"/>
+				<Property MaxLength="3" Name="Unit" Nullable="false" Type="Edm.String" sap:creatable="false" sap:label="Unit of Measure"
+					sap:semantics="unit-of-measure" sap:updatable="false"/>
+				<Property Name="SubTotal" Nullable="false" Precision="28" Scale="5" Type="Edm.Decimal" sap:creatable="false" sap:label="Subtotal"
+					sap:updatable="false"/>
+				<Property MaxLength="5" Name="CurrencyCode" Nullable="false" Type="Edm.String" sap:creatable="false" sap:label="Currency Code"
+					sap:semantics="currency-code" sap:updatable="false"/>
+				<NavigationProperty FromRole="FromRole_ShoppingCartItemProduct" Name="Product" Relationship="EPM_REF_APPS_SHOP.ShoppingCartItemProduct"
+					ToRole="ToRole_ShoppingCartItemProduct"/>
+			</EntityType>
+			<EntityType Name="ShoppingCart" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="Id"/>
+				</Key>
+				<Property Name="Id" Nullable="false" Type="Edm.Int16" sap:creatable="false" sap:updatable="false"/>
+				<Property Name="Total" Nullable="false" Precision="28" Scale="5" Type="Edm.Decimal" sap:creatable="false" sap:updatable="false"/>
+				<Property MaxLength="5" Name="CurrencyCode" Nullable="false" Type="Edm.String" sap:creatable="false" sap:semantics="currency-code"
+					sap:updatable="false"/>
+				<Property Name="TotalQuantity" Nullable="false" Type="Edm.Int32" sap:creatable="false" sap:updatable="false"/>
+				<Property MaxLength="88" Name="FormattedCustomerName" Nullable="false" Type="Edm.String" sap:creatable="false" sap:label="Ordered By"
+					sap:updatable="false"/>
+				<Property MaxLength="164" Name="FormattedAddress" Nullable="false" Type="Edm.String" sap:creatable="false" sap:label="Address"
+					sap:updatable="false"/>
+				<NavigationProperty FromRole="FromRole_ShoppingCartShoppingCartItems" Name="ShoppingCartItems"
+					Relationship="EPM_REF_APPS_SHOP.ShoppingCartShoppingCartItems" ToRole="ToRole_ShoppingCartShoppingCartItems"/>
+			</EntityType>
+			<EntityType Name="Image" m:HasStream="true" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="ProductId"/>
+					<PropertyRef Name="Id"/>
+				</Key>
+				<Property MaxLength="10" Name="ProductId" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+					sap:label="Product Id" sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="255" Name="Id" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Id"
+					sap:sortable="false" sap:updatable="false"/>
+				<Property Name="MimeType" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Mime Type"
+					sap:sortable="false" sap:updatable="false"/>
+			</EntityType>
+			<Association Name="ProductsSubCategory" sap:content-version="1">
+				<End Multiplicity="1" Role="FromRole_ProductsSubCategory" Type="EPM_REF_APPS_SHOP.SubCategory"/>
+				<End Multiplicity="*" Role="ToRole_ProductsSubCategory" Type="EPM_REF_APPS_SHOP.Product"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_ProductsSubCategory">
+						<PropertyRef Name="Id"/>
+					</Principal>
+					<Dependent Role="ToRole_ProductsSubCategory">
+						<PropertyRef Name="SubCategoryId"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="ProductsSupplier" sap:content-version="1">
+				<End Multiplicity="1" Role="FromRole_ProductsSupplier" Type="EPM_REF_APPS_SHOP.Supplier"/>
+				<End Multiplicity="*" Role="ToRole_ProductsSupplier" Type="EPM_REF_APPS_SHOP.Product"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_ProductsSupplier">
+						<PropertyRef Name="Id"/>
+					</Principal>
+					<Dependent Role="ToRole_ProductsSupplier">
+						<PropertyRef Name="SupplierId"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="SubCategoryMainCategories" sap:content-version="1">
+				<End Multiplicity="1" Role="FromRole_SubCategoryMainCategories" Type="EPM_REF_APPS_SHOP.MainCategory"/>
+				<End Multiplicity="*" Role="ToRole_SubCategoryMainCategories" Type="EPM_REF_APPS_SHOP.SubCategory"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_SubCategoryMainCategories">
+						<PropertyRef Name="Id"/>
+					</Principal>
+					<Dependent Role="ToRole_SubCategoryMainCategories">
+						<PropertyRef Name="MainCategoryId"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="ProductReviews" sap:content-version="1">
+				<End Multiplicity="1" Role="FromRole_ProductReviews" Type="EPM_REF_APPS_SHOP.Product"/>
+				<End Multiplicity="*" Role="ToRole_ProductReviews" Type="EPM_REF_APPS_SHOP.Review"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_ProductReviews">
+						<PropertyRef Name="Id"/>
+					</Principal>
+					<Dependent Role="ToRole_ProductReviews">
+						<PropertyRef Name="ProductId"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="ProductReviewAggregates" sap:content-version="1">
+				<End Multiplicity="1" Role="FromRole_ProductReviewAggregates" Type="EPM_REF_APPS_SHOP.Product"/>
+				<End Multiplicity="*" Role="ToRole_ProductReviewAggregates" Type="EPM_REF_APPS_SHOP.ReviewAggregate"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_ProductReviewAggregates">
+						<PropertyRef Name="Id"/>
+					</Principal>
+					<Dependent Role="ToRole_ProductReviewAggregates">
+						<PropertyRef Name="ProductId"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="ShoppingCartItemProduct" sap:content-version="1">
+				<End Multiplicity="0..1" Role="FromRole_ShoppingCartItemProduct" Type="EPM_REF_APPS_SHOP.ShoppingCartItem"/>
+				<End Multiplicity="1" Role="ToRole_ShoppingCartItemProduct" Type="EPM_REF_APPS_SHOP.Product"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_ShoppingCartItemProduct">
+						<PropertyRef Name="ProductId"/>
+					</Principal>
+					<Dependent Role="ToRole_ShoppingCartItemProduct">
+						<PropertyRef Name="Id"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="ProductImages" sap:content-version="1">
+				<End Multiplicity="1" Role="FromRole_ProductImages" Type="EPM_REF_APPS_SHOP.Product"/>
+				<End Multiplicity="*" Role="ToRole_ProductImages" Type="EPM_REF_APPS_SHOP.Image"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_ProductImages">
+						<PropertyRef Name="Id"/>
+					</Principal>
+					<Dependent Role="ToRole_ProductImages">
+						<PropertyRef Name="ProductId"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="ShoppingCartShoppingCartItems" sap:content-version="1">
+				<End Multiplicity="1" Role="FromRole_ShoppingCartShoppingCartItems" Type="EPM_REF_APPS_SHOP.ShoppingCart"/>
+				<End Multiplicity="*" Role="ToRole_ShoppingCartShoppingCartItems" Type="EPM_REF_APPS_SHOP.ShoppingCartItem"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_ShoppingCartShoppingCartItems">
+						<PropertyRef Name="Id"/>
+					</Principal>
+					<Dependent Role="ToRole_ShoppingCartShoppingCartItems">
+						<PropertyRef Name="ShoppingCartId"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<EntityContainer Name="EPM_REF_APPS_SHOP_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+				<EntitySet EntityType="EPM_REF_APPS_SHOP.MainCategory" Name="MainCategories" sap:content-version="1" sap:creatable="false"
+					sap:deletable="false" sap:updatable="false"/>
+				<EntitySet EntityType="EPM_REF_APPS_SHOP.SubCategory" Name="SubCategories" sap:content-version="1" sap:creatable="false"
+					sap:deletable="false" sap:searchable="true" sap:updatable="false"/>
+				<EntitySet EntityType="EPM_REF_APPS_SHOP.Review" Name="Reviews" sap:content-version="1"/>
+				<EntitySet EntityType="EPM_REF_APPS_SHOP.Product" Name="Products" sap:content-version="1" sap:creatable="false" sap:deletable="false"/>
+				<EntitySet EntityType="EPM_REF_APPS_SHOP.Currency" Name="Currencies" sap:content-version="1" sap:creatable="false" sap:deletable="false"
+					sap:updatable="false"/>
+				<EntitySet EntityType="EPM_REF_APPS_SHOP.DimensionUnit" Name="DimensionUnits" sap:content-version="1" sap:creatable="false"
+					sap:deletable="false" sap:updatable="false"/>
+				<EntitySet EntityType="EPM_REF_APPS_SHOP.QuantityUnit" Name="QuantityUnits" sap:content-version="1" sap:creatable="false"
+					sap:deletable="false" sap:updatable="false"/>
+				<EntitySet EntityType="EPM_REF_APPS_SHOP.WeightUnit" Name="WeightUnits" sap:content-version="1" sap:creatable="false" sap:deletable="false"
+					sap:updatable="false"/>
+				<EntitySet EntityType="EPM_REF_APPS_SHOP.ReviewAggregate" Name="ReviewAggregates" sap:content-version="1" sap:creatable="false"
+					sap:deletable="false" sap:updatable="false"/>
+				<EntitySet EntityType="EPM_REF_APPS_SHOP.ShoppingCartItem" Name="ShoppingCartItems" sap:content-version="1" sap:creatable="false"
+					sap:deletable="false" sap:updatable="false"/>
+				<EntitySet EntityType="EPM_REF_APPS_SHOP.ShoppingCart" Name="ShoppingCarts" sap:content-version="1" sap:creatable="false"
+					sap:deletable="false" sap:updatable="false"/>
+				<EntitySet EntityType="EPM_REF_APPS_SHOP.Image" Name="Images" sap:content-version="1" sap:creatable="false" sap:deletable="false"
+					sap:label="Images" sap:updatable="false"/>
+				<EntitySet EntityType="EPM_REF_APPS_SHOP.Supplier" Name="Suppliers" sap:content-version="1" sap:creatable="false" sap:deletable="false"
+					sap:updatable="false"/>
+				<AssociationSet Association="EPM_REF_APPS_SHOP.ProductImages" Name="ProductImagesSet" sap:content-version="1" sap:creatable="false"
+					sap:deletable="false" sap:updatable="false">
+					<End EntitySet="Products" Role="FromRole_ProductImages"/>
+					<End EntitySet="Images" Role="ToRole_ProductImages"/>
+				</AssociationSet>
+				<AssociationSet Association="EPM_REF_APPS_SHOP.ProductReviews" Name="ProductReviewsSet" sap:content-version="1" sap:creatable="false"
+					sap:deletable="false" sap:updatable="false">
+					<End EntitySet="Products" Role="FromRole_ProductReviews"/>
+					<End EntitySet="Reviews" Role="ToRole_ProductReviews"/>
+				</AssociationSet>
+				<AssociationSet Association="EPM_REF_APPS_SHOP.ProductsSupplier" Name="ProductsSupplierSet" sap:content-version="1" sap:creatable="false"
+					sap:deletable="false" sap:updatable="false">
+					<End EntitySet="Suppliers" Role="FromRole_ProductsSupplier"/>
+					<End EntitySet="Products" Role="ToRole_ProductsSupplier"/>
+				</AssociationSet>
+				<AssociationSet Association="EPM_REF_APPS_SHOP.ShoppingCartItemProduct" Name="ShoppingCartItemProductSet" sap:content-version="1"
+					sap:creatable="false" sap:deletable="false" sap:updatable="false">
+					<End EntitySet="ShoppingCartItems" Role="FromRole_ShoppingCartItemProduct"/>
+					<End EntitySet="Products" Role="ToRole_ShoppingCartItemProduct"/>
+				</AssociationSet>
+				<AssociationSet Association="EPM_REF_APPS_SHOP.ProductReviewAggregates" Name="ProductReviewAggregatesSet" sap:content-version="1"
+					sap:creatable="false" sap:deletable="false" sap:updatable="false">
+					<End EntitySet="Products" Role="FromRole_ProductReviewAggregates"/>
+					<End EntitySet="ReviewAggregates" Role="ToRole_ProductReviewAggregates"/>
+				</AssociationSet>
+				<AssociationSet Association="EPM_REF_APPS_SHOP.SubCategoryMainCategories" Name="SubCategoryMainCategoriesSet" sap:content-version="1"
+					sap:creatable="false" sap:deletable="false" sap:updatable="false">
+					<End EntitySet="MainCategories" Role="FromRole_SubCategoryMainCategories"/>
+					<End EntitySet="SubCategories" Role="ToRole_SubCategoryMainCategories"/>
+				</AssociationSet>
+				<AssociationSet Association="EPM_REF_APPS_SHOP.ShoppingCartShoppingCartItems" Name="ShoppingCartShoppingCartItemsSet"
+					sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:updatable="false">
+					<End EntitySet="ShoppingCarts" Role="FromRole_ShoppingCartShoppingCartItems"/>
+					<End EntitySet="ShoppingCartItems" Role="ToRole_ShoppingCartShoppingCartItems"/>
+				</AssociationSet>
+				<AssociationSet Association="EPM_REF_APPS_SHOP.ProductsSubCategory" Name="ProductSubCategorySet" sap:content-version="1"
+					sap:creatable="false" sap:deletable="false" sap:updatable="false">
+					<End EntitySet="SubCategories" Role="FromRole_ProductsSubCategory"/>
+					<End EntitySet="Products" Role="ToRole_ProductsSubCategory"/>
+				</AssociationSet>
+				<FunctionImport EntitySet="ShoppingCartItems" Name="AddProductToShoppingCart" ReturnType="EPM_REF_APPS_SHOP.ShoppingCartItem"
+					m:HttpMethod="POST">
+					<Parameter Mode="In" Name="ProductId" Type="Edm.String"/>
+				</FunctionImport>
+				<FunctionImport EntitySet="ShoppingCarts" Name="BuyShoppingCart" ReturnType="EPM_REF_APPS_SHOP.ShoppingCart" m:HttpMethod="POST"
+					sap:action-for="EPM_REF_APPS_SHOP.ShoppingCart"/>
+			</EntityContainer>
+			<Annotations Target="EPM_REF_APPS_SHOP.Product/SupplierName" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record>
+						<PropertyValue Property="CollectionPath" String="Suppliers"/>
+						<PropertyValue Bool="true" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="SupplierName"/>
+									<PropertyValue Property="ValueListProperty" String="Name"/>
+								</Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="SupplierId"/>
+									<PropertyValue Property="ValueListProperty" String="Id"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="EPM_REF_APPS_SHOP.Product/SubCategoryName" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record>
+						<PropertyValue Property="CollectionPath" String="SubCategories"/>
+						<PropertyValue Bool="true" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="SubCategoryName"/>
+									<PropertyValue Property="ValueListProperty" String="Name"/>
+								</Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterIn">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="MainCategoryId"/>
+									<PropertyValue Property="ValueListProperty" String="MainCategoryId"/>
+								</Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="SubCategoryId"/>
+									<PropertyValue Property="ValueListProperty" String="Id"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="EPM_REF_APPS_SHOP.Product/CurrencyCode" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record>
+						<PropertyValue Property="CollectionPath" String="Currencies"/>
+						<PropertyValue Bool="true" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="CurrencyCode"/>
+									<PropertyValue Property="ValueListProperty" String="Code"/>
+								</Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+									<PropertyValue Property="ValueListProperty" String="Text"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="EPM_REF_APPS_SHOP.Product/MainCategoryName" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record>
+						<PropertyValue Property="CollectionPath" String="MainCategories"/>
+						<PropertyValue Bool="true" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="MainCategoryName"/>
+									<PropertyValue Property="ValueListProperty" String="Name"/>
+								</Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="MainCategoryId"/>
+									<PropertyValue Property="ValueListProperty" String="Id"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="EPM_REF_APPS_SHOP.Product/MainCategoryId" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record>
+						<PropertyValue Property="CollectionPath" String="MainCategories"/>
+						<PropertyValue Bool="true" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="MainCategoryId"/>
+									<PropertyValue Property="ValueListProperty" String="Id"/>
+								</Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="MainCategoryName"/>
+									<PropertyValue Property="ValueListProperty" String="Name"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

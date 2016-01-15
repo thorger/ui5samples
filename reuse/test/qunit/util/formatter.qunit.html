@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+	<title>Qunits for Reference Reuse Library</title>
+
+		<script id="sap-ui-bootstrap" 
+				type="text/javascript"
+				src="../../../resources/sap-ui-core.js"
+				data-sap-ui-theme="sap_bluecrystal"
+				data-sap-ui-noConflict="true"
+				data-sap-ui-libs="nw.epm.refapps.lib.reuse"
+				data-sap-ui-modules="sap.ui.core.plugin.LessSupport"
+				data-sap-ui-resourceroots='{"nw.epm.refapps.testhelpers": "../testhelpers/" }'>
+				>
+	</script>
+		<script>
+			jQuery.sap.require("sap.ui.qunit.qunit-css");
+			jQuery.sap.require("sap.ui.thirdparty.qunit");
+			jQuery.sap.require("sap.ui.qunit.qunit-junit");
+			jQuery.sap.require("sap.ui.qunit.qunit-coverage");
+			jQuery.sap.require("sap.ui.thirdparty.sinon");
+		</script>
+	
+	<!-- Test file -->
+	<script type="text/javascript" src="formatterTest.js"></script>
+	
+
+</head>
+	<body>
+		<h1 id="qunit-header">QUnit Page for formatters</h1>
+		<h2 id="qunit-banner"></h2>
+		<h2 id="qunit-userAgent"></h2>
+		<div id="qunit-testrunner-toolbar"></div>
+		<ol id="qunit-tests"></ol>
+	</body>
+</html>

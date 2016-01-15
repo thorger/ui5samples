@@ -1,0 +1,10 @@
+[{
+	"Code": "EUR",
+	"Text": "Euro"
+}, {
+	"Code": "JPY",
+	"Text": "Yen"
+}, {
+	"Code": "USD",
+	"Text": "US Dollar"
+}]

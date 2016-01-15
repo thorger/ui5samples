@@ -1,0 +1,72 @@
+<mvc:View controllerName="nw.epm.refapps.ext.shop.controller.S4_ShoppingCart" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m">
+	<Page id="shoppingCartPage" navButtonPress="onBack" showNavButton="true" title="{i18n>xtit.myShoppingCart}">
+		<headerContent>
+			<Button binding="{path: '/ShoppingCarts(-1)', batchGroupId: 'shoppingCart'}" icon="sap-icon://cart" id="btnShoppingCartHeader"
+				press="onShoppingCartPressed" text="{TotalQuantity}" tooltip="{i18n>xfld.addToCart}"/>
+		</headerContent>
+		<content>
+			<Table class="sapUiResponsiveMargin" delete="onDeletePressed" growing="true" growingScrollToLoad="true" id="shoppingCartTable"
+				items="{path: '/ShoppingCarts(-1)/ShoppingCartItems', sorter: { path: 'Id', descending: false}, parameters: {expand: 'Product', select: 'Quantity,SubTotal,CurrencyCode,ProductId,Product/IsFavoriteOfCurrentUser,Product/ImageUrl,Product/Name,Product/StockQuantity,Product/Price,Product/CurrencyCode'}}"
+				mode="Delete" noDataText="{i18n>xfld.noDataShoppingCart}" updateFinished="onUpdateFinished" width="auto">
+				<columns>
+					<!-- Favorite -->
+					<Column hAlign="Left" id="favoriteColumn" minScreenWidth="Tablet" width="7%">
+						<header></header>
+					</Column>
+					<!-- Picture -->
+					<Column hAlign="Left" id="pictureColumn" minScreenWidth="Tablet" width="13%">
+						<header><Label id="itemsLbl" text="{i18n>xfld.items}"/></header>
+					</Column>
+					<!-- Name + Availability -->
+					<Column hAlign="Left" id="availabilityColumn" width="{= ${device>/system/phone}? '35%' : '23%'}">
+						<header><Label id="availabilityLbl" text="{/#Product/Name/@sap:label}" visible="{= !${device>/system/phone}}"/></header>
+					</Column>
+					<!-- Quantity -->
+					<Column demandPopin="true" hAlign="Right" id="quantityColumn" minScreenWidth="Tablet" width="11%">
+						<header><Label id="quantityLbl" text="{/#ShoppingCartItem/Quantity/@sap:label}"/></header>
+					</Column>
+					<!-- Unit Price -->
+					<Column demandPopin="true" hAlign="Right" id="priceColumn" minScreenWidth="Tablet" popinDisplay="Inline" width="23%">
+						<header><Label id="priceLbl" text="{i18n>xfld.unitPrice}"/></header>
+					</Column>
+					<!-- Subtotal & Total footer-->
+					<Column hAlign="Right" width="{= ${device>/system/phone}? '35%' : '23%'}">
+						<header><Label id="subTotalLbl" text="{/#ShoppingCartItem/SubTotal/@sap:label}" visible="{= !${device>/system/phone}}"/></header>
+						<footer>
+							<ObjectNumber id="totalFooter"
+								number="{parts: [{path: '/ShoppingCarts(-1)/Total'},{path: '/ShoppingCarts(-1)/CurrencyCode'}], formatter:'.formatter.formatAmount'}"
+								unit="{/ShoppingCarts(-1)/CurrencyCode}"/>
+						</footer>
+					</Column>
+				</columns>
+				<ColumnListItem press="onLineItemPressed" type="Navigation" vAlign="Middle">
+					<cells>
+						<!-- Favorite -->
+						<core:Icon class="sapThemeHighlight-asColor" id="favoriteIcon" src="sap-icon://favorite" visible="{Product/IsFavoriteOfCurrentUser}"/>
+						<!-- Picture -->
+						<Image alt="{i18n>xfld.productImage}" class="sapUiSmallMarginTopBottom" decorative="false" densityAware="false" height="3rem"
+							id="productImage" src="{Product/ImageUrl}" width="3rem"/>
+						<!-- Name + Availability -->
+						<ObjectIdentifier id="avalaibilityObjIdent" text="{path: 'Product/StockQuantity', formatter: '.formatter.formatAvailabilityText'}"
+							title="{Product/Name}"/>
+						<!-- Quantity -->
+						<Input change="onQuantityChanged" id="quantityInput" maxLength="3" textAlign="End" type="Number"
+							value="{path: 'Quantity', type: 'sap.ui.model.type.Integer'}" valueStateText="{i18n>ymsg.errorInvalidNumber}"/>
+						<!-- Unit Price -->
+						<ObjectNumber emphasized="false" id="priceObjNumber" number="{path: 'Product/Price', formatter:'.formatter.formatAmount'}"
+							unit="{Product/CurrencyCode}"/>
+						<!-- Subtotal -->
+						<ObjectNumber id="subTotalObjNumber" number="{path: 'SubTotal', formatter:'.formatter.formatAmount'}" unit="{CurrencyCode}"/>
+					</cells>
+				</ColumnListItem>
+			</Table>
+		</content>
+		<footer>
+			<OverflowToolbar id="shoppingCartFooter">
+				<ToolbarSpacer/>
+				<Button enabled="false" id="btnCheckOut" press="onCheckoutButtonPressed" text="{i18n>xbut.goToCheckout}" type="Emphasized"/>
+			</OverflowToolbar>
+		</footer>
+	</Page>
+</mvc:View>

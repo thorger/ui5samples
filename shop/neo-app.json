@@ -1,0 +1,82 @@
+{
+  "headerWhiteList": [
+    "X-UI5-Component"
+  ],
+  "routes": [
+    {
+      "path": "/sap/opu/odata",
+      "target": {
+        "type": "destination",
+        "name": "RefAppsBackend",
+        "entryPath": "/sap/opu/odata"
+      },
+      "description": "Backend OData services"
+    },
+    {
+      "path": "/sap/public/bc/NWDEMO_MODEL",
+      "target": {
+        "type": "destination",
+        "name": "RefAppsBackend",
+        "entryPath": "/sap/public/bc/NWDEMO_MODEL",
+        "preferLocal": true
+      },
+      "description": "EPM mime picture service"
+    },
+    {
+      "path": "/webapp/resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/resources",
+        "preferLocal": true
+      },
+      "description": "SAPUI5 dist layer resources"
+    },
+    {
+      "path": "/webapp/test-resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/test-resources",
+        "preferLocal": true
+      },
+      "description": "SAPUI5 Dist layer test resources"
+    },
+    {
+      "path": "/sap/bc/lrep/",
+      "target": {
+        "type": "destination",
+        "name": "RefAppsBackend",
+        "entryPath": "/sap/bc/lrep/"
+      },
+      "description": "LRep support: calls to same backend"
+    },
+    {
+      "path": "/webapp/Component-changes.json",
+      "target": {
+        "type": "destination",
+        "name": "RefAppsBackend",
+        "entryPath": "/sap/bc/ui5_ui5/sap/epmra_shop/Component-changes.json"
+      },
+      "description": "Component-changes.json"
+    },
+    {
+      "path": "/resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/resources"
+      },
+      "description": "SAPUI5 Resources"
+    },
+    {
+      "path": "/test-resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/test-resources"
+      },
+      "description": "SAPUI5 Test Resources"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<library xmlns="http://www.sap.com/sap.ui.library.xsd" >
+
+	<name>nw.epm.refapps.lib.reuse</name>
+	<vendor>SAP SE</vendor>
+	<copyright>${copyright}</copyright>
+	<version>${version}</version>
+	
+	<title>{{xtit.lib}}</title>
+	<documentation>{{ydes.lib}}</documentation>
+
+    <appData>
+        <manifest xmlns="http://www.sap.com/ui5/buildext/manifest" >
+            <i18n>messagebundle.properties</i18n>
+            <offline>false</offline>
+            <deviceTypes desktop="true" phone="true" tablet="true" />
+            <supportedTheme>sap_hcb</supportedTheme>
+            <supportedTheme>sap_bluecrystal</supportedTheme>
+            <contentDensities cozy="true" compact="true" />
+            <sap.fiori>
+                <registrationId>F1054</registrationId>
+                <archeType>reusecomponent</archeType>
+            </sap.fiori>
+            <sap.platform.abap>
+                <uri>/sap/bc/ui5_ui5/sap/epm_ref_lib</uri>
+            </sap.platform.abap>
+            <sap.platform.hcp>
+                <uri></uri>
+            </sap.platform.hcp>
+        </manifest>
+     
+        <ownership xmlns="http://www.sap.com/ui5/buildext/ownership">
+            <component>BC-SRV-NWD-FRA</component>
+        </ownership>
+    </appData>
+
+    <dependencies>
+        <dependency>
+            <libraryName>sap.ui.core</libraryName>
+        </dependency>
+        <dependency>
+            <libraryName>sap.m</libraryName>
+        </dependency>
+    </dependencies>
+</library>

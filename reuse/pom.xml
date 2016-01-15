@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.sap.fiori</groupId>
+	<artifactId>nw.epm.refapps.lib.reuse</artifactId>
+	<version>1.9.20-SNAPSHOT</version>
+	<name>nw.epm.refapps.reuse</name>
+	<description>Reuse Library For EPM Reference Apps</description>
+	<parent>
+		<groupId>com.sap.fiori
+		</groupId>
+		<artifactId>fiori-reuselib-pom</artifactId>
+		<version>1.10.0-SNAPSHOT</version>
+	</parent>
+	<properties>
+		<cloud.application>nwepmrefappslibreuse</cloud.application>
+		<fiori.library.build.flatten>true</fiori.library.build.flatten>
+	</properties>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.sap.ldi</groupId>
+				<artifactId>translation-plugin</artifactId>
+				<configuration>
+					<translationDomain>BC</translationDomain>
+					<translationDeveloper>D024817</translationDeveloper>
+					<translationCollection>FIORI_EPM_REF_REUSE</translationCollection>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

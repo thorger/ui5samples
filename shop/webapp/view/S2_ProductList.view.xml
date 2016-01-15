@@ -1,0 +1,101 @@
+<mvc:View controllerName="nw.epm.refapps.ext.shop.controller.S2_ProductList" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:shop="nw.epm.refapps.ext.shop.control" xmlns:table="sap.ui.table" xmlns="sap.m">
+	<Page id="productListPage" navButtonPress="onNavBack" showNavButton="true" title="{i18n>xtit.products}">
+		<headerContent>
+			<Button binding="{/ShoppingCarts(-1)}" icon="sap-icon://cart" id="btnProductListHeader" press="onShoppingCartPressed" text="{TotalQuantity}"
+				tooltip="{i18n>xfld.addToCart}"/>
+		</headerContent>
+		<content>
+			<!-- the smart filter bar is added later by the controller (S2_ProductList.controller.js) if not running on a phone-->
+			<!-- the count mode on the item binding is set to obtain the $count information for the item collection-->
+			<Table class="sapUiResponsiveMargin" growing="true" growingScrollToLoad="true" id="catalogTable"
+				items="{path: '/Products', sorter: {path: 'Name', descending: false}, groupHeaderFactory: '.createGroupHeader', parameters: {countMode: 'Inline', select: 'StockQuantity,Id,ImageUrl,Name,Description,AverageRating,RatingCount,Price,CurrencyCode,IsFavoriteOfCurrentUser,SupplierName,SubCategoryName,MainCategoryName'}}"
+				noDataText="{i18n>xfld.noDataProducts}" updateFinished="onUpdateFinished" width="auto">
+				<headerToolbar>
+					<OverflowToolbar id="tableToolbar">
+						<Title id="catalogTitle" text="{productListView>/catalogTitle}" visible="{= !${device>/system/phone}}"/>
+						<ToolbarSpacer id="toolbarSpacer" visible="{= !${device>/system/phone}}"/>
+						<SearchField id="searchField" search="onSearchPressed" showRefreshButton="false" width="{= !${device>/system/phone}? '30%' : 'auto'}"/>
+						<OverflowToolbarButton icon="sap-icon://sort" id="sortBtn" press="onSortPressed" text="{i18n>xbut.sort}" tooltip="{i18n>xbut.sort}"/>
+						<OverflowToolbarButton icon="sap-icon://group-2" id="groupBtn" press="onGroupPressed" text="{i18n>xbut.group}" tooltip="{i18n>xbut.group}"/>
+						<OverflowToolbarButton enabled="{productListView>/personalizationActive}" icon="sap-icon://action-settings" id="personlizationBtn"
+							press="onPersonalizationPressed" text="{i18n>xbut.personalization}" tooltip="{i18n>xbut.personalization}"/>
+					</OverflowToolbar>
+				</headerToolbar>
+				<columns>
+					<!-- Columns must have unique IDs because table personalization service is 
+						used -->
+					<!-- Favorite -->
+					<Column hAlign="Left" id="favoriteColumn" minScreenWidth="Tablet" width="4%">
+						<header>
+							<!-- even though the column title is invisible on the table it needs to be set because it is used by the personalization-->
+							<Label id="favoriteLbl" text="{/#Product/IsFavoriteOfCurrentUser/@sap:label}" visible="false"/>
+						</header>
+					</Column>
+					<!-- Picture -->
+					<Column hAlign="Left" id="pictureColumn" width="{= !${device>/system/phone}? '9%' : '5rem'}">
+						<header>
+							<Label id="imageLbl" text="{/#Product/ImageUrl/@sap:label}" visible="{= !${device>/system/phone}}"/>
+						</header>
+					</Column>
+					<!-- Name + Availability -->
+					<Column hAlign="Left" id="nameAvailabilityColumn" width="{= !${device>/system/phone}? '18%' : '80%'}">
+						<header>
+							<Label id="availabiltyLbl" text="{/#Product/Name/@sap:label}" visible="{= !${device>/system/phone}}"/>
+						</header>
+					</Column>
+					<!-- Description -->
+					<Column demandPopin="true" hAlign="Left" id="descriptionColumn" minScreenWidth="Tablet" popinDisplay="Inline" width="25%">
+						<header>
+							<Label id="descriptionLbl" text="{/#Product/Description/@sap:label}"/>
+						</header>
+					</Column>
+					<!-- AverageRating & RatingCount -->
+					<Column demandPopin="true" hAlign="Left" id="ratingColumn" minScreenWidth="Tablet" visible="{= !${device>/system/phone}}" width="16%">
+						<header>
+							<Label id="ratingLbl" text="{/#Product/AverageRating/@sap:label}"/>
+						</header>
+					</Column>
+					<!-- Price -->
+					<Column demandPopin="true" hAlign="Right" id="priceColumn" minScreenWidth="Tablet" popinDisplay="Inline" width="10%">
+						<header>
+							<Label id="priceLbl" text="{/#Product/Price/@sap:label}"/>
+						</header>
+					</Column>
+					<!-- Add Button -->
+					<Column demandPopin="true" hAlign="Right" id="buttonColumn" minScreenWidth="Tablet" popinDisplay="WithoutHeader" width="15%">
+						<header>
+							<Label id="addToCart" text="{i18n>xfld.addToCart}" visible="{= ${device>/system/phone}}"/>
+						</header>
+					</Column>
+				</columns>
+				<ColumnListItem id="columnListItem" press="onLineItemPressed" type="Navigation" vAlign="Middle">
+					<cells>
+						<!-- Favorite -->
+						<core:Icon class="sapThemeHighlight-asColor sapMTableContentMargin" id="favoriteIcon" src="sap-icon://favorite"
+							visible="{IsFavoriteOfCurrentUser}"/>
+						<!-- Picture -->
+						<Image alt="{i18n>xfld.productImage}" class="sapUiSmallMarginTopBottom" decorative="false" densityAware="false" height="3rem"
+							id="imageImage" src="{ImageUrl}" width="3rem"/>
+						<!-- Name + Availability -->
+						<ObjectIdentifier class="sapMTableContentMargin" id="availabilityObjIdent"
+							text="{path: 'StockQuantity', formatter: '.formatter.formatAvailabilityText'}" title="{Name}"/>
+						<!-- Description -->
+						<Text class="sapMTableContentMargin" id="desctiptionTxt" maxLines="2" text="{Description}"/>
+						<!-- AverageRating & RatingCount -->
+						<shop:RatingAndCount class="sapMTableContentMargin" enabled="false" iconSize="1rem" id="ratingControl" maxRatingValue="5"
+							ratingCount="{RatingCount}" value="{AverageRating}" verticalAlignContent="true"/>
+						<!-- Price -->
+						<ObjectNumber class="sapMTableContentMargin" id="priceObjNumber" number="{path: 'Price', formatter:'.formatter.formatAmount' }"
+							unit="{CurrencyCode}"/>
+						<!-- Add Button -->
+						<Button class="sapMTableContentMargin" id="btnAddToCart" press="onAddToCartPressed" text="{i18n>xbut.addToCart}"/>
+					</cells>
+				</ColumnListItem>
+			</Table>
+		</content>
+		<footer>
+			<Bar/>
+		</footer>
+	</Page>
+</mvc:View>

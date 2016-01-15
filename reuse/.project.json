@@ -1,0 +1,45 @@
+{
+  "hcpdeploy": {
+    "account": "fiori",
+    "name": "nwepmrefappslibreuse",
+    "entryPath": "src/nw/epm/refapps/lib/reuse"
+  },
+  "translation": {
+    "translationDomain": "",
+    "supportedLanguages": "en,fr,de",
+    "defaultLanguage": "en",
+    "defaultI18NPropertyFile": "i18n.properties",
+    "resourceModelName": "i18n"
+  },
+  "projectType": [
+    "com.watt.uitools.plugin.reuselibrary"
+  ],
+  "appparams": [
+    {
+      "paramName": "sap-ui-xx-lesssupport",
+      "paramValue": "true",
+      "paramActive": true
+    }
+  ],
+  "basevalidator": {
+    "validators": [
+      {
+        "validatorID": "fioriJsValidator"
+      },
+      {
+        "validatorID": "fioriXmlAnalysis"
+      }
+    ],
+    "services": {
+      "js": "fioriJsValidator",
+      "xml": "fioriXmlAnalysis"
+    }
+  },
+  "generation": [
+    {
+      "templateId": "nw.epm.refapps.reuse",
+      "templateVersion": "1.9.20",
+      "dateTimeStamp": "Wed, 06 Jan 2016 14:00:41 GMT"
+    }
+  ]
+}

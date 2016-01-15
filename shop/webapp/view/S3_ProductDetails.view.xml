@@ -1,0 +1,139 @@
+<mvc:View controllerName="nw.epm.refapps.ext.shop.controller.S3_ProductDetails" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form"
+	xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns:shop="nw.epm.refapps.ext.shop.control"
+	xmlns="sap.m">
+	<Page busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}" id="productDetailsPage" navButtonPress="onNavBack"
+		showNavButton="true" title="{i18n>xtit.product}">
+		<headerContent>
+			<Button binding="{path:'/ShoppingCarts(-1)', batchGroupId: 'reviews'}" icon="sap-icon://cart" id="btnProductHeader"
+				press="onShoppingCartPressed" text="{TotalQuantity}" tooltip="{i18n>xfld.addToCart}"/>
+		</headerContent>
+		<content>
+			<ObjectHeader backgroundDesign="Translucent" icon="{ImageUrl}" iconActive="true" iconAlt="{i18n>xfld.productImage}" iconDensityAware="false"
+				iconPress="onImagePressed" id="pd_header" markFavorite="{IsFavoriteOfCurrentUser}"
+				number="{path : 'Price', formatter:'.formatter.formatAmount' }" numberUnit="{CurrencyCode}" responsive="true" showMarkers="true"
+				title="{Name}">
+				<statuses>
+					<ObjectStatus id="availabilityStatus" state="{= ${StockQuantity} &lt; 1 ? 'Error' : 'Success' }"
+						text="{path: 'StockQuantity', formatter: '.formatter.formatAvailabilityText'}"/>
+				</statuses>
+				<attributes>
+					<ObjectAttribute id="categoryAttribute" text="{MainCategoryName}" title="{/#Product/MainCategoryName/@sap:label}"/>
+					<ObjectAttribute id="subCategoryAttribute" text="{SubCategoryName}" title="{/#Product/SubCategoryName/@sap:label}"/>
+				</attributes>
+			</ObjectHeader>
+			<!--Allow adding fields after the object header -->
+			<core:ExtensionPoint name="extensionAfterObjectHeader"/>
+			<!-- Form for Product Details -->
+			<f:SimpleForm class="sapUiResponsiveMargin sapUiForceWidthAuto" columnsL="2" columnsM="2" editable="false" emptySpanL="0" emptySpanM="0"
+				id="productDetailForm" labelSpanL="4" labelSpanM="4" layout="ResponsiveGridLayout" maxContainerCols="2" minWidth="1024"
+				title="{i18n>xtit.productDetails}">
+				<f:content>
+					<core:Title id="generalDataTitle" text="{i18n>xtit.generalInformation}"/>
+					<Label id="productIDLbl" text="{/#Product/Id/@sap:label}"/>
+					<Text id="productId" text="{Id}"/>
+					<Label id="descriptionLbl" text="{/#Product/Description/@sap:label}"/>
+					<Text id="descriptionTxt" text="{Description}"/>
+					<Label id="supplierLbl" text="{/#Product/SupplierName/@sap:label}"/>
+					<Link class="sapUiForceWidthAuto" id="supplierLink" press="onSupplierPressed" text="{SupplierName}"/>
+					<Label id="ratingLbl" text="{i18n>xfld.reviews}"></Label>
+					<shop:RatingAndCount enabled="true" iconSize="1rem" id="ratingCount" maxRatingValue="5" press="onRatingPressed" ratingCount="{RatingCount}"
+						value="{AverageRating}" verticalAdjustment="-15" verticalAlignContent="true"/>
+					<core:Title id="technicalDataTitle" text="{i18n>xtit.technicalData}"/>
+					<Label id="quantityUnitLbl" text="{/#Product/QuantityUnit/@sap:label}"/>
+					<Text id="quantityUnitTxt" text="{QuantityUnit}"/>
+					<Label id="depthLbl" text="{/#Product/DimensionDepth/@sap:label}"/>
+					<Text id="depthTxt"
+						text="{parts:[{path: 'DimensionDepth', type: 'sap.ui.model.type.Float', formatOptions: {style: 'long'}}, {path: 'DimensionUnit'}], formatter: '.formatter.formatMeasure' }"/>
+					<Label id="widthLbl" text="{/#Product/DimensionWidth/@sap:label}"/>
+					<Text id="widthTxt"
+						text="{parts:[{path: 'DimensionWidth' , type: 'sap.ui.model.type.Float', formatOptions: {style: 'long'}}, {path: 'DimensionUnit'}], formatter: '.formatter.formatMeasure' }"/>
+					<Label id="heightLbl" text="{/#Product/DimensionHeight/@sap:label}"/>
+					<Text id="heightTxt"
+						text="{parts:[{path: 'DimensionHeight', type: 'sap.ui.model.type.Float', formatOptions: {style: 'long'}}, {path: 'DimensionUnit'}], formatter: '.formatter.formatMeasure' }"/>
+					<Label id="weightLbl" text="{/#Product/WeightMeasure/@sap:label}"/>
+					<Text id="weightTxt"
+						text="{parts:[{path: 'WeightMeasure', type: 'sap.ui.model.type.Float', formatOptions: {style: 'long'}}, {path: 'WeightUnit'}], formatter: '.formatter.formatMeasure' }"/>
+				</f:content>
+			</f:SimpleForm>
+			<!--Allow adding fields after the product details section -->
+			<core:ExtensionPoint name="extensionAfterForm"/>
+			<!--Review Table -->
+			<Table class="sapUiResponsiveMargin" growing="true" growingScrollToLoad="true" id="reviewTable" items="{path: 'Reviews'}"
+				noDataText="{i18n>xfld.noDataReviews}" width="auto">
+				<headerToolbar>
+					<Toolbar id="tableHeaderBar">
+						<Title class="sapMH4FontSize" id="reviewLbl" text="{i18n>xtit.reviews}"/>
+						<ToolbarSpacer/>
+						<Button icon="sap-icon://sort" id="btnSettings" press="onTableSettingsPressed" tooltip="{i18n>xbut.sort}"/>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<!-- Rating Indicator -->
+					<Column demandPopin="true" hAlign="Left" id="ratingIndicatorColumn" minScreenWidth="Tablet" popinDisplay="Inline" vAlign="Top" width="6rem">
+						<header>
+							<Label id="ratingIndicatorLbl" text="{/#Review/Rating/@sap:label}"/>
+						</header>
+					</Column>
+					<!-- Name and Date -->
+					<Column demandPopin="true" hAlign="Left" id="nameAndDateColumn" minScreenWidth="Tablet" vAlign="Top" width="20%"/>
+					<!-- Comment -->
+					<Column demandPopin="true" hAlign="Left" id="commentColumn" minScreenWidth="Tablet" vAlign="Top" width="55%">
+						<header>
+							<Label id="commentLbl" text="{i18n>xfld.review}"/>
+						</header>
+					</Column>
+					<!-- Links for Helpful, Edit and Delete -->
+					<Column demandPopin="true" hAlign="Left" id="linksColumn" minScreenWidth="Tablet" vAlign="Top" width="12rem"/>
+				</columns>
+				<ColumnListItem id="reviewListItem">
+					<cells >
+						<!-- Rating Indicator -->
+						<RatingIndicator class="sapMTableContentMargin" enabled="false" iconSize='0.875rem' id="ratingIndicatorControl" maxValue="5"
+							value="{Rating}"/>
+						<!-- Name and Date -->
+						<ObjectIdentifier class="sapMTableContentMargin" id="nameAndDateObjIdent"
+							text="{path:'ChangedAt', type:'sap.ui.model.type.Date', formatOptions: { style: 'medium', strictParsing: true, parseAsString: true} }"
+							title="{=${IsReviewOfCurrentUser} ? ${i18n>xfld.me} : ${UserDisplayName} }"/>
+						<!-- Comment -->
+						<Text class="sapMTableContentMargin" id="commentTxt" text="{Comment}"/>
+						<!-- Links for Helpful, Edit and Delete -->
+						<l:VerticalLayout>
+							<Text class="sapMTableContentMargin sapUiTinyMarginBottom" id="helpfulCountTxt"
+								text="{path: 'HelpfulCount', formatter: '.formatter.formatHelpfulCount'}"/>
+							<l:HorizontalLayout>
+								<!-- Rate as Helpful -->
+								<Link class="sapUiLargeMarginEnd" enabled="{=!${HelpfulForCurrentUser} }" id="helpfulLink" press="onRateAsHelpfulPressed"
+									text="{i18n>xlnk.rateAsHelpful}" visible="{=!${IsReviewOfCurrentUser} }"/>
+								<!-- Edit -->
+								<Link class="sapUiLargeMarginEnd" id="editReviewLink" press="onEditReviewLinkPressed" text="{i18n>xlnk.editReview}"
+									visible="{IsReviewOfCurrentUser}"/>
+								<!-- Delete -->
+								<Link class="sapUiLargeMarginEnd" id="delteReviewLink" press="onDeleteReviewLinkPressed" text="{i18n>xlnk.deleteReview}"
+									visible="{IsReviewOfCurrentUser}"/>
+							</l:HorizontalLayout>
+						</l:VerticalLayout>
+					</cells>
+				</ColumnListItem>
+			</Table>
+		</content>
+		<footer>
+			<OverflowToolbar id="productDetailFooter">
+				<ToolbarSpacer/>
+				<Button id="btnAddToCart" press="onAddToCartPressed" text="{i18n>xbut.addToCart}" type="Emphasized"/>
+				<Button id="btnReview" press="onEditReviewPressed" text="{= ${HasReviewOfCurrentUser} ? ${i18n>xbut.myReview} : ${i18n>xbut.writeReview} }"/>
+				<OverflowToolbarButton icon="sap-icon://favorite" id="btnFavorite" press="onToggleFavoritePressed"
+					text="{= ${IsFavoriteOfCurrentUser} ? ${i18n>xbut.removeFavorite} : ${i18n>xbut.addFavorite}}"
+					tooltip="{= ${IsFavoriteOfCurrentUser} ? ${i18n>xbut.removeFavorite} : ${i18n>xbut.addFavorite}}"/>
+				<Button icon="sap-icon://action" id="btnShare" press="onSharePressed" tooltip="{i18n>xtol.shareTooltip}">
+					<dependents>
+						<ActionSheet id="shareSheet" placement="Top" showCancelButton="true">
+							<buttons>
+								<footerbar:AddBookmarkButton appData="{ path: 'detailView>/saveAsTileTitle', formatter: '.formatter.formatShareTileData' }" id="shareTile"/>
+							</buttons>
+						</ActionSheet>
+					</dependents>
+				</Button>
+			</OverflowToolbar>
+		</footer>
+	</Page>
+</mvc:View>
