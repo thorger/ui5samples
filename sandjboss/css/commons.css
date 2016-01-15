@@ -1,0 +1,963 @@
+/* ======================================================================== */
+/* @Adam Common CSS*/
+/* ======================================================================== */
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    width: 100%;
+    background-image-size: 100% 100%;
+}
+
+a, img {
+    -webkit-touch-callout: none; 
+}
+
+html, body, div, label.sapMLabel, img, a{ 
+    -moz-user-select: none; 
+    -webkit-user-select: none; 
+    -ms-user-select: none;
+    -khtml-user-select: none; 
+    user-select: none;
+}
+
+input, a, div:focus, li:focus{ outline:none; }
+input[type=button]::-moz-focus-inner{border:none;}
+
+*:focus,
+*{
+    outline:none;
+}
+
+/* ======================================================================== */
+/* @Adam Login*/
+/* ======================================================================== */
+.l_login_view,
+.l_login_mainContent{
+    height: 100%;
+}
+
+.l_login_form{
+	opacity: 1;
+	height: auto;
+	margin-top: 16%;
+	margin-left: auto;
+	margin-right: auto;
+	width: 35%;
+	max-width: 400px;
+	min-width: 300px;
+}
+
+.l_input_login{
+    transition: 1s;
+    -moz-transition: 1s;
+    -webkit-transition: 1s;
+    -o-transition: 1s;
+    opacity: 1;
+    height: 3rem;
+}
+
+.l_input_login>.sapMInputBaseInner::-webkit-input-placeholder {
+    color: #707070;
+    font-size: 0.875rem;
+    font-style: normal;
+}
+
+.l_input_login>.sapMInputBaseInner:-moz-placeholder { /* Firefox 18- */
+    color: #707070;
+    font-size: 0.875rem;
+    font-style: normal;  
+}
+
+.l_input_login>.sapMInputBaseInner::-moz-placeholder { /* Firefox 19+ */
+    color: #707070;
+    font-size: 0.875rem;
+    font-style: normal; 
+}
+
+.l_input_login>.sapMInputBaseInner:-ms-input-placeholder { /* IE */
+    color: #707070;
+    font-size: 0.875rem;
+    font-style: normal;
+}
+
+.l_input_login.sapMBtn.hidden,
+.l_input_login.sapMInput.sapMInputBase.hidden,
+.l_input_login.sapMSlt.hidden{
+    opacity: 0;
+    height: 0px;
+}
+
+.font_app_title.sapMLabel.hidden{
+    display: none;
+}
+
+.l_login_btn.sapMBtn{
+    margin-top: 3rem;
+    padding: 0px;
+    position: relative;
+    overflow: hidden;
+}
+
+.l_login_btn.sapMBtn>.sapMBtnInner{
+    height: 48px;
+}
+
+.l_login_btn.sapMBtn>.sapMBtnInner,
+.l_login_btn.sapMBtn>.sapMBtnInner>span{
+    line-height: 48px;
+    font-size: 16px;
+}
+
+.l_changePass_btn.sapMBtn{
+    margin-top: 1rem;
+    padding: 0px;
+    position: relative;
+    overflow: hidden;
+}
+
+.l_login_footer.sapUiHLayout{
+    position: absolute;
+    bottom: 0px;
+    z-index: 1;
+    left: 0px;
+    width: 100%;
+    display: table;
+}
+
+.l_sap_icon{
+    width: 64px;
+    
+}
+
+.l_login_footer>.sapUiHLayoutChildWrapper{
+    display: table-cell;
+    vertical-align: bottom;
+    padding-bottom: 20px;
+}
+
+.l_login_footer>.sapUiHLayoutChildWrapper:first-child{
+    width: 64px;
+    padding-left: 1rem;
+}
+
+.l_login_footer>.sapUiHLayoutChildWrapper:nth-child(2){
+    padding-right: 1rem;
+    text-align: right;
+}
+
+
+/* ======================================================================== */
+/* @Adam Home*/
+/* ======================================================================== */
+.l_header_right_bar.sapMTB{
+    padding-top: 4px;
+    border-bottom: none;
+}
+
+.l_header_left_bar.sapMTB{
+    padding-top: 2px;
+}
+
+.l_nav_Btn.sapMBtn>.sapMBtnInner,
+.l_nav_Btn.sapMBtn:hover>.sapMBtnInner{
+    background: none;
+    margin-right: 2px;
+}
+
+.l_homePage_header .sapMBarRight{
+    padding-right: 0px;
+}
+
+.l_nav_spacer.sapMTBSpacer.sapMTBSpacerFlex{
+    width: 1.1px;
+    height: 80%;
+    margin-right: 3px!important;
+    flex: none;
+    background-color: #c2c2c2;
+}
+
+.l_user_header.sapMImg{
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+}
+
+.l_user_search.sapMBtn span{
+    font-size: 20px;
+}
+
+.l_user_menu.sapMBtn{
+    margin-left: 0px;
+}
+
+.l_user_menu.sapMBtn:hover>.sapMBtnInner{
+    background: none;
+}
+
+.l_home_page_mainContainer.sapMTC{
+    margin: auto;
+    max-height: 446px;
+}
+
+
+/* ======================================================================== */
+/* @Adam underwriting detail shell framework*/
+/* ======================================================================== */
+.l_uw_detailShell.sapUiHLayout {
+    width: 100%;
+    height: 100%;
+    background: #F3F7F8;
+    position: relative;
+    display: table;
+}
+
+.l_uw_detailShell.sapUiHLayout>div.sapUiHLayoutChildWrapper{
+    display: table-cell;
+}
+
+.sapUiHLayoutChildWrapper.l_uw_detailShell_RightBar{
+    width: 50px;
+    transition: width 1s;
+    -moz-transition: width 1s;
+    -webkit-transition: width 1s;
+    -o-transition: width 1s;
+}
+
+.sapUiHLayoutChildWrapper.l_uw_detailShell_RightBar.show{
+    width: 400px;
+}
+
+.l_uw_detail_shell_rightBar.sapMBar{
+    width: 100%;
+    height: 100%;
+}
+.l_uw_detail_shell_rightBar.sapMIBar .sapMBarChild{
+    margin-left: 0px;    
+}
+
+.l_uw_detail_shell_rightBar.sapMBar>div.sapMBarLeft{
+    padding: 3px 0px;
+}
+
+.l_uw_detail_shell_rightBar.sapMBar>div.sapMBarLeft .sapUiHLayoutChildWrapper{
+    float: left;
+    height: 100%;
+}
+
+.l_detail_rightBar.sapUiHLayout{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.l_uw_rightBar_btn.sapMBtn{
+    float: left;
+    width: 100%;
+}
+
+.l_uw_rightBar_btn.sapMBtn>div>span.sapUiIcon{
+    color: white;
+    text-shadow: 0px 1px 0 gray;
+} 
+
+.sapUiHLayoutChildWrapper.l_uw_rightBar_content{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    min-width: 350px;
+    width: 35%;
+    height: 100%;
+    z-index: 1;
+}
+
+.sapUiHLayoutChildWrapper.l_uw_rightBar_bar{
+    height: 100%;
+    width: 50px;
+    position: relative;
+    float: right;
+    z-index: 2;
+}
+
+.l_detail_rightBar_mainContainer.sapUiVlt{
+    width: 100%;
+    height: 100%;
+}
+
+
+/* ======================================================================== */
+/* @Christine Notes*/
+/* ======================================================================== */
+.l_detail_rightBar_mainContainer.sapUiVlt>div.sapUiVltCell {
+    height: 100%;
+}
+.l_notes {
+    width: 95%;
+    height: 100%;
+    position: relative;
+    margin-top: 8px;
+    margin-left: 5px;
+}
+.l_notes>div:nth-child(1) {
+    height: 85%;
+}
+.l_notes>div:nth-child(2) {
+    height: 15%;
+    margin-top: 5px;
+}
+.l_notes_adduser {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.l_notes_icontab {
+    height: 100%;
+}
+.l_notes_icontab>div:first-child{
+    width: 90%;
+    height: 12%;
+    overflow: hidden;
+}
+.l_notes_icontab>.sapMITBContainerContent {
+    height: 88%;
+    border-top: 0;
+    overflow: hidden; 
+}
+.l_notes_icontab>.sapMITBContainerContent>div{
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+.l_notes_icontab .sapMITBHead {
+    height: 100%;
+    margin-top: 0;
+    margin-left: 13px;
+    margin-right: 22px;
+}
+.l_notes_icontab .sapMITBArrowScrollLeft {
+    left: 0;
+    padding-left: 0;
+}
+.l_notes_icontab .sapMITBArrowScrollRight {
+    right: 37px; 
+}
+.l_notes_icontab .sapMITBHead .sapMITBFilter,
+.l_notes_icontab .sapMITBHead .sapMITBFilter .sapMITBTab {
+    width: 66px;
+    height: 100%;
+    padding: 0;
+}
+.l_notes_icontab .sapMITBHead .sapMITBFilter .sapMITBText{
+    width: 60px;
+    position: absolute;
+    bottom: 4px;
+}
+.sapMITBTab
+.l_notes_icontab .sapMITBHead .sapMITBContentArrow {
+    border: 0;
+}
+
+.l_notes_icontab .sapMITBFilterIcon {
+    border-radius: 0;
+    border: 2px solid #fff;
+    background-color: #f2f2f2;
+    color: #BEBDBD;
+}
+.l-notes-user-tab img, .l_notes_icontab .sapMITBSelected .sapMITBFilterDefault{
+    margin-top: 5px;
+    border-radius: 0;
+}
+.l_notes_icontab li.sapMFeedListItemTitleDiv {
+    margin: 0 10px;
+    padding: 0;
+}
+.l_notes_icontab li.sapMFeedListItemTitleDiv .sapMLIBContent {
+    overflow: visible;
+}
+.l_notes_icontab li.sapMFeedListItemTitleDiv .sapMFeedListItemHasFigure>.sapMFeedListItemTextText {
+    width: 220px;
+}
+.notes_input {width: 400px;}
+.notes_input.sapMFeedIn>.sapMFeedInContainer>.sapMTextArea>.sapMInputBaseInner{padding-right: 20px;}
+
+.l_notes_footer {
+    position: relative;
+}
+.l_notes_footer>div:nth-child(2) {
+    position: absolute;
+    right: 5%;
+    bottom: 90%;
+    width: 300px;
+}
+.l_notes_upload>div:nth-child(2) {
+    position: absolute;
+    bottom: -250%;
+    right: 18%;
+}
+.l_notes_tooltip>div:first-child {
+   width: 200px;
+   height: 100px;
+   overflow: auto;
+   border: 1px solid;
+   position: absolute;
+   top: -500%;
+   right: 10px;
+}
+.l_notes_upload button{
+    height: 23px;
+    font-family: SAP-icons;
+    padding: 0;
+}
+.l_notes_upload .sapUiBtnS.sapUiBtnNorm {
+    border: 0;
+}
+.l_notes_upload button:before{
+    content: '\e04a';
+    font-size: 20px;
+}
+.l_notes_upload button>div{display: none;}
+.l_notes_upload.sapUiVlt {
+    overflow: visible;
+}
+.l_notes_tooltip_downicon.sapMPopoverArrDown {
+    left: 70%;
+    bottom: -26px;
+}
+
+.sapMITBSelected .l_notes_deletebtn{visibility: visible;}
+.l_notes_deletebtn {
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 0;
+    border: 0;
+    cursor: pointer;
+    visibility: hidden;
+    background-color: #f2f2f2;
+    border-radius: 7px;
+}
+.l_notes_deletebtn .sapMBtnContent{
+    font-size: 12px;
+    line-height: 100%;
+}
+.l_notes_deletebtn:focus{outline: 0;}
+.l_notes_attachments {
+    width: 100%;
+}
+.l_notes_attachments>div {
+    margin-top: 3px;
+    display: block;
+}
+.l_notes_attachments>div>a.notes_download_area {
+    max-width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: block;
+}
+.l_notes_upload_files_list .sapMSLITitleOnly {
+    font-size: 14px;
+}
+
+/* ======================================================================== */
+/* @Jocelyn ActionList*/
+/* ======================================================================== */
+.l_UW_ActionListHeader {
+    border-bottom: 1px solid blue;
+}
+
+.l_UW_ActionListHeader_CellLayout {
+    width: 100%;
+}
+
+.l_UW_ActionListHeader_CellLayout.sapUiHLayout {
+    display: table;
+}
+
+.l_UW_ActionListHeader_CellLayout .sapUiHLayoutChildWrapper {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.l_UW_ActionList .sapMBtn {
+    padding-left: 0px;
+    padding-bottom: 0px;
+    padding-right: 5px;
+}
+
+.l_UW_ActionListContent_Row .sapMBtn {
+    font-size: 22px;
+    margin-left: 15px;
+    color: #666666;
+    margin-top: 0px;
+}
+
+.l_UW_ActionListContent_Cell, 
+.l_UW_ActionListHeader_Cell{
+    text-align: right;
+}
+
+.l_UW_ActionListHeader_Cell.sapUiMltPadRight,
+.l_UW_ActionListContent_Cell.sapUiMltPadRight{
+    padding:0px;
+}
+
+.l_UW_ActionListHeader_Cell.l_uw_stateColumn.sapUiMltCell{
+    width: 2rem;
+    padding-right: 5px;
+}
+
+.l_UW_ActionListHeader_Cell.l_uw_stateColumn button.btn_lite .sapMBtnInner,
+.l_UW_ActionListHeader_Cell.l_uw_stateColumn button.btn_lite .sapMBtnInner .sapMBtnIcon{
+    width: 1.45rem;
+    min-width: 1.45rem;
+    font-size: 1.2rem;
+}
+
+
+.l_UW_ActionListContent_Row>.l_UW_ActionListContent_Cell:first-child {
+    text-align: left;
+}
+
+.l_UW_ActionListHeader_CellLayout .sapUiHLayoutChildWrapper:first-child {
+    text-align: left;
+}
+
+.l_uw_actionList_firstName.sapMLabel {
+    margin-right: 5px;
+}
+
+.l_uw_action_list_title.sapMLabel{
+    font-size: 1.4rem;
+    padding-top: 4px;    
+}
+
+.l_uw_first_column.sapMLabel{
+    margin-left: 2.1rem;
+}
+
+.l_UW_ActionListHeader_titleActions>.sapUiHLayoutChildWrapper:nth-child(2){
+    padding-right: 2rem;
+}
+
+/* ======================================================================== */
+/* @Adam ActionList*/
+/* ======================================================================== */
+.l_uw_pool_actionList.sapUiView{
+    margin: 15px 0px;
+}
+
+.l_UW_ActionList.sapUiMlt{
+    margin: auto;
+}
+
+/* ======================================================================== */
+/* @Elaine oShell detail page*/
+/* ======================================================================== */
+.l_uw_detailPage_content .sapMPageHeader .sapMBarRight {
+    text-align: left;
+}
+
+.l_uw_detailPage_header {
+    margin-left: 2rem !important;
+}
+
+.l_uw_detailPage_header .sapUiHLayoutChildWrapper {
+    padding-right: 0.2rem;
+}
+
+.l_uw_detailPage_content #uw_detail_shell_list.sapUiView {
+    overflow: auto;
+}
+
+/* ======================================================================== */
+/* @Elaine Case list*/
+/* ======================================================================== */
+.l_caseList .sapUiCompFilterBar {
+    background-color: #ddedf0;
+}
+
+.l_itemsTable>table>tbody>tr>td:nth-child(2) {
+    border-right: 1px solid #e5e5e5;
+}
+
+/* ======================================================================== */
+/* @Elaine Value help dialog*/
+/* ======================================================================== */
+.l_filterBar .sapMMultiInput .sapMTokenizer {
+    min-width: 71px !important;
+}
+
+.l_filterBar .sapMMultiInput .sapMTokenizer .sapMToken {
+    min-width: 67px !important;
+}
+
+/* ======================================================================== */
+/* @Elaine Value help dialog*/
+/* ======================================================================== */
+.sapUiPopupWithPadding.l_valueHelpDialog .sapMDialogScrollCont {
+    padding: 0;
+}
+
+.l_valueHelpDialog .sapUiCompFilterBarWidth100>div:first-child>.sapuiVltCell:first-child {
+    visibility: hidden;
+}
+
+/* ======================================================================== */
+/* @Adam detail page Content*/
+/* ======================================================================== */
+.l_uw_detailPage_content .sapMPageHeader::before{
+    border-top: none;
+}    
+
+.l_uw_detail_main_container.sapUiVlt{
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.l_uw_detail_main_container>div.sapUiVltCell{
+    width: auto;
+    height: auto;
+    float: left;
+}
+
+/* ======================================================================== */
+/* @Jocelyn Tab Strip*/
+/* ======================================================================== */
+.l_uw_tabStrip .sapMITBHead.sapMITBTextOnly{
+    margin-top: 0;
+}
+
+.l_uw_tabStrip .sapMITBNotScrollable.sapMITH{
+    padding-top: 1rem;
+}
+
+/* ======================================================================== */
+/* @Adam configDialog*/
+/* ======================================================================== */
+.l_uw_configDialog_topBar.sapMTB-Transparent-CTX.sapMTB.sapMPersoDialogFixedBar{
+    padding: 0 1rem 0 1rem;
+}
+
+.l_uw_configDialog_selectAll.sapMBarChild.sapMCb.sapMPointer{
+    padding: 0 0 0 2rem;
+}
+
+.l_uw_configDialog_selectAll.sapMBarChild.sapMCb>div.sapMCbBg.sapMCbMark{
+    left: 0;
+}
+
+.l_uw_configDialog_selectAll.sapMBarChild.sapMCb.sapMCbMarkMixed>div.sapMCbBg.sapMCbMark:before{
+    content: "\e17b";
+    font-family: "SAP-icons";
+    color: #007cc0;
+}
+
+/* ======================================================================== */
+/* @Edmond uwItem table */
+/* ======================================================================== */
+.uwItemList_tabel .l_itemsTable {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.uwItemList_table tr td .uwItemType {
+    margin-left: 0.4rem;
+}
+
+.uwItemList_table tr td {
+    padding: 0.675rem 0.2rem;
+}
+
+.uwItemList_table tr td:nth-last-child(2) {
+    padding: 0.2rem 0;
+}
+
+/* ======================================================================== */
+/* @Adam Info form */
+/* ======================================================================== */
+.l_uw_referredInfo.sapUiVlt {
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    padding: 20px;
+    line-height: 24px;
+}
+
+.l_uw_form_title.sapMLabel {
+    margin: 0px 40px 0px 0px
+}
+
+.l_uw_values.sapMLabel{
+    margin-right: 12px;
+}
+
+/* ======================================================================== */
+/* @Jocelyn uwItem detail bar */
+/* ======================================================================== */
+.l_uwItemsBar_rightContent.sapMIBar .sapMBarChild {
+    margin-left: 0.1rem;
+}
+
+.sapMTB-Transparent-CTX .l_uw_barText.sapMLabel {
+    padding: 0 10px;
+    border-left: 1px solid #000;
+    margin: 0;
+}
+
+.sapMTB-Transparent-CTX .l_uw_barText.sapMLabel.no_vertical_line {
+    border-left: none;
+}
+
+/* ======================================================================== */
+/* @Edmond, common template for form info */
+/* ======================================================================== */
+.l_formInfo_layout.sapUiVlt {
+    width: 100%;
+}
+
+.l_formInfo_layout .formInfo_title.sapMLabel {
+    text-overflow: initial;
+    overflow: initial;
+    white-space: initial;
+}
+
+.l_formInfo_list.sapUiVlt {
+    display: block;
+}
+
+.l_formInfo_row.sapUiHLayout {
+    width: 100%;
+    min-width: 100%;
+}
+
+.l_formInfo_list .sapUiHLayoutChildWrapper {
+    --max-width: 50%;
+}
+
+.l_formInfo_list .formInfo_lab.sapMLabel {
+    text-overflow: initial;
+    overflow: initial;
+    white-space: initial;
+    display: block;
+    word-wrap: break-word;
+}
+
+.l_formInfo_list .formInfo_lab.sapMLabel:after {
+    content: ":"
+}
+
+.l_formInfo_list .formInfo_field.sapMText {
+    display:block;
+}
+
+/* ======================================================================== */
+/* @Edmond uwItem_basic_info : block class
+/* ======================================================================== */
+.uwItem_basic_info {
+    margin-top: 1.5rem;
+    --padding: 0.2rem 1rem 0.2rem 1rem;
+}
+
+.uwItem_basic_info .l_formInfo_layout {
+    max-width: 100%;
+}
+
+.uwItem_basic_info .l_formInfo_layout>.sapUiVltCell {
+    padding: 0.2rem 2rem 0.2rem 2rem;
+}
+
+.uwItem_basic_info .l_formInfo_layout>.sapUiVltCell:nth-child(2) {
+    padding-left: 4rem;
+}
+
+.uwItem_basic_info .formInfo_title.sapMLabel {
+    font-size: 1rem;
+    border-bottom: 2px solid #007cc0;
+    padding-bottom: 0.4rem;
+}
+
+.uwItem_basic_info .l_formInfo_list .formInfo_field.sapMText {
+    padding-left: 1rem;
+}
+
+.uwItem_basic_info .l_formInfo_row.sapUiHLayout {
+    padding: 0.4rem 0;
+}
+
+/* ======================================================================== */
+/* @Christine Final UW Opintion template  */
+/* ======================================================================== */
+.l_uw_opinion {
+    position: relative;
+    background-color: transparent;
+}
+.formTemplate_panel>.sapMPanelContent {
+    padding-top: 0;
+    background-color: transparent;
+    border: 0;
+}
+.l_uw_opinion>.sapMTB {
+    border: 0;
+}
+.formTemplate_form {
+
+}
+.formTemplate_form .sapMLabel {
+    margin-top: 15px;
+}
+.formTemplate_form .sapUiGrid>tbody>tr {
+    background-color: transparent;
+}
+.l_opintion_headBtn {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+/* ======================================================================== */
+/* @Jocelyn history info template */
+/* ======================================================================== */
+.l_uw_historyInfo_form {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.l_uw_historyInfo_form>.sapUiFormLayout>.sapUiFormContainer {
+    display: table;
+}
+
+.l_uw_historyInfo_form .sapUiFormElement>.sapMLabel,
+.l_uw_historyInfo_form .sapUiFormElement>.sapMText {
+    display: table-cell;
+}
+
+.l_uw_historyInfo_form .sapUiFormElement {
+    display: inline-table;
+}
+
+.l_uw_historyInfo_form .l_uw_historyInfo_textInfo {
+    min-width: 150px;
+}
+
+.l_uw_historyInfo_form .l_uw_historyInfo_data {
+    margin-right: 1rem;
+}
+/* ======================================================================== */
+/* @Jocelyn referral details : block class
+/* ======================================================================== */
+.l_uw_referralDetails>.l_uw_historyInfo_form {
+    border: 1px solid #D9D9D9;
+    max-height: 120px;
+}
+
+.l_uw_referralDetails>.l_uw_historyInfo_form .sapUiFormTitle {
+    border-bottom: none;
+    line-height: 2.25rem;
+    margin-left: 40px;
+}
+
+.l_uw_referralDetails>.l_uw_historyInfo_form .sapUiFormElement {
+    margin: 0px 0px 15px 40px;
+}
+
+.l_uw_referralDetails .l_uw_referralDetails_textInfo {
+    min-width: 170px;
+}
+
+/* ======================================================================== */
+/* @Adam Table  */
+/* ======================================================================== */
+.l_uw_pool_table tbody .sapMListTblCell{
+    padding: .2rem 0.5rem;
+    vertical-align: middle;
+}
+
+.l_uw_pool_table .sapMListTblNavCol, 
+.l_uw_pool_table .sapMListTblSelCol{
+    vertical-align: middle;
+}
+
+.l_uw_pool_table .sapMTB{
+    border-bottom: none;
+}
+
+.l_uw_pool_table .sapMTB-Transparent-CTX.sapMTB {
+    padding-left: 0px;
+}
+
+.pool_table_title{
+    text-indent:14px;
+}
+
+.pool_table_data{
+    margin-right: 8px;
+}
+
+.l_uw_pool_table.pool_table_noMultiSelect tbody tr .sapMListTblCell:first-child{
+    padding-left: 1rem;
+}
+
+.pool_table_label.sapUiLbl{
+    font-size: 0.875rem;
+}
+
+.pool_configDialog_list>ul>li{
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: table;
+    padding: 0px;
+}
+
+.pool_configDialog_list>ul>.sapMILI>.sapMLIBContent{
+    padding: 0 1rem;
+}
+
+.column_config_order_content{
+    padding: 0 1rem;
+    background: white;
+    height: auto;
+    transition: height 5s;
+    -moz-transition: height 5s;
+    -webkit-transition: height 5s;
+    -o-transition: height 5s;
+    display: block;
+}
+
+.column_config_order_content.hide{
+    height: 0px;
+    display: none;
+}
+
+.column_config_order_content>div>.sapMListUl>.sapMLIB{
+    border: none;
+    background: white;
+} 
+
+/* ======================================================================== */
+/* @Chrisitne Add Evidences Dialog
+/* ======================================================================== */
+.l_evidences_add_dialog .sapMITBContainerContent {
+    height: 200px;
+}
+.l_evidences_add_dialog_document {
+    margin-top: 20px;
+}
+.l_evidences_add_dialog_upload form button {
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+/* ======================================================================== */
+/* @Edmond submit case success dialog*/
+/* ======================================================================== */
+.submitSuccessDialog .dialog_link {
+    width: 100%;
+    text-align: center;
+}
+

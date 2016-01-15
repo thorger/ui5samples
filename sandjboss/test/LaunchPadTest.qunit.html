@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>LaunchPad Test</title>
+<link rel="stylesheet"
+	href="../../pqm/sapui5/resources/sap/ui/thirdparty/qunit.css"
+	type="text/css" media="screen" />
+<script src="../../pqm/sapui5/resources/sap/ui/thirdparty/qunit.js"></script>
+<script src="../../pqm/sapui5/resources/sap/ui/qunit/qunit-junit.js"></script>
+
+<!--  defined physical folder path -->
+<script id="sap-ui-bootstrap"
+	src="../../pqm/sapui5/resources/sap-ui-cachebuster/sap-ui-core.js"
+	data-sap-ui-theme="sap_bluecrystal"
+	data-sap-ui-libs="sap.m, sap.ui.layout"
+	data-sap-ui-xx-bindingSyntax="complex"
+	data-sap-ui-resourceroots='{
+        "IPWUILaunchPad": "./" 
+      }'>
+  
+</script>
+  
+<script>
+<!--  defined  match project name to url -->
+  jQuery.sap.registerModulePath("IPWUILaunchPad.test", "/ipw-launch-pad/test")
+
+  jQuery.sap.require("sap.ui.test.Opa5");
+  jQuery.sap.require("sap.ui.test.opaQunit");
+
+  jQuery.sap.require("IPWUILaunchPad.test.arrangement.LaunchPadArrangement");
+  jQuery.sap.require("IPWUILaunchPad.test.action.LaunchPadAction");
+  jQuery.sap.require("IPWUILaunchPad.test.assertion.LaunchPadAssertion");
+
+  var Opa5 = sap.ui.test.Opa5;
+  
+  sap.ui.test.Opa5.extendConfig({
+    arrangements: new IPWUILaunchPad.test.arrangement.LaunchPadArrangement(),
+    actions: new IPWUILaunchPad.test.action.LaunchPadAction(),
+    assertions: new IPWUILaunchPad.test.assertion.LaunchPadAssertion(),
+    viewNamespace: "IPWUILaunchPad.view"
+  });
+  
+  opaTest("Pass Login Page", function(Given, When, Then) {
+   // Arrangements
+    Given.iStartMyAppLogin();
+    
+    Then.iShouldSeeLoginPage("SAP Quotation for Insurance", "cannot see title of Login Page, more than likely not on Login Page", "" );
+    // Arrangements
+    When.iTypeAnInputValue("uw2", "inputTextForUsernameField", "unable to type into input value", "");
+    //Action
+    Then.iShouldSeeInputHasValue("inputTextForUsernameField", "cannot see input has value", "");
+    // Arrangements
+    When.iTypeAnInputValue("password", "inputPasswordForPasswordField", "unable to type into input value", "");
+    //Action
+    Then.iShouldSeeInputHasValue("inputPasswordForPasswordField", "cannot see input has value", "");
+    // Arrangements
+    When.iPressButton("buttonForlogin", "couldn't press button", "successfully pressed button", false);
+    //Action
+    Then.iShouldSeeTheApplications("myinsworklist",  "Title 'My Quote Submission WorkList' is displayed.", "Did not display Title.");
+    
+    });
+   
+   
+</script>
+</head>
+<body>
+	<div id="qunit"></div>
+	<div id="qunitPG"></div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+
+{
+
+"applications" : {
+
+            "InsuranceQuote-manage" : {
+
+                "additionalInformation" : "SAPUI5.Component=fs.ipw.myinsworklist",
+
+                "applicationType" : "URL",
+
+                "url" : "/fs.ipw.myinsworklist/",
+
+                "description" : "My Quote Submission Worklist"
+
+            },
+            "InsuranceQuote-create" : {
+
+                "additionalInformation" : "SAPUI5.Component=fs.ipw.insquote.create",
+
+                "applicationType" : "URL",
+
+                "url" : "/fs.ipw.insquote.create/",
+
+                "description" : "Create Insurance Quote"
+
+            },
+            "GroupInsuranceQuote-create" : {
+
+                "additionalInformation" : "SAPUI5.Component=fs.ipw.grpinsquote.create",
+
+                "applicationType" : "URL",
+
+                "url" : "/fs.ipw.grpinsquote.create/",
+
+                "description" : "Create Group Insurance Quote"
+
+            },
+            "Underwriting-manage" : {
+
+                "additionalInformation" : "SAPUI5.Component=fs.ipw.myuwworklist",
+
+                "applicationType" : "URL",
+
+                "url" : "/fs.ipw.myuwworklist/",
+
+                "description" : "My Underwriting Worklist"
+
+            },
+            "InsuranceTask-manage" : {
+
+                "additionalInformation" : "SAPUI5.Component=fs.ipw.myinstasks",
+
+                "applicationType" : "URL",
+
+                "url" : "/fs.ipw.myinstasks/",
+
+                "description" : "My Insurance Tasks"
+
+            }
+
+    }
+
+}

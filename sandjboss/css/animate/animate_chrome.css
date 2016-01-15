@@ -1,0 +1,75 @@
+/* ======================================================================== */
+/* @Adam fiori flower animate*/
+/* ======================================================================== */
+@-webkit-keyframes rotateBlossom {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+@-webkit-keyframes fadeLeaf2-1 {
+  0% { opacity: 0.2; }
+  50% { opacity: 1; }
+  100% { opacity: 0.2; }
+}
+
+@-webkit-keyframes fadeLeaf2-2 {
+  0% { opacity: 0.2; }
+  50% { opacity: 1; }
+  100% { opacity: 0.2; }
+}
+
+@-webkit-keyframes fadeLeaf2-3 {
+  0% { opacity: 0.2; }
+  50% { opacity: 1; }
+  100% { opacity: 0.2; }
+}
+
+@-webkit-keyframes fadeLeaf2-4 {
+  0% { opacity: 0.2; }
+  50% { opacity: 1; }
+  100% { opacity: 0.2; }
+}
+
+@-webkit-keyframes fadeLeaf2-5 {
+  0% { opacity: 0.2; }
+  50% { opacity: 1; }
+  100% { opacity: 0.2; }
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+@-webkit-keyframes scaleLeaf2-1 {
+  100% {
+    -webkit-transform: scale(1.25) rotate(0deg);
+  }
+}
+
+@-webkit-keyframes scaleLeaf2-2 {
+  100% {
+    -webkit-transform: scale(1.25) rotate(77deg);
+  }
+}
+
+@-webkit-keyframes scaleLeaf2-3 {
+  100% {
+    -webkit-transform: scale(1.25) rotate(144deg);
+  }
+}
+
+@-webkit-keyframes scaleLeaf2-4 {
+  100% {
+    -webkit-transform: scale(1.25) rotate(216deg);
+  }
+}
+
+@-webkit-keyframes scaleLeaf2-5 {
+  100% {
+    -webkit-transform: scale(1.25) rotate(288deg);
+  }
+}

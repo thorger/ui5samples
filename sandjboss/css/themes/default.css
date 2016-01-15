@@ -1,0 +1,441 @@
+/* ======================================================================== */
+/* @Adam background*/
+/* ======================================================================== */
+.bg_login{
+    background: url('./images/login_background.jpg') no-repeat center;
+}
+
+.bg_login_input>input,
+.bg_login_input.sapMInputBase>input,
+.bg_login_input.sapMSlt {
+    border: none;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.themes_bg_oShell_header.sapMBar{
+    background-color: #FFFFFF;
+}    
+
+.bg_underwriting.sapUiUfdShellBackground, 
+.bg_underwriting.sapMGlobalBackgroundColor{
+    background-image: -moz-linear-gradient(top, #00C6C6, #004E78);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #00C6C6), color-stop(1, #004E78));
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00C6C6', endColorstr='#004E78', GradientType='0');
+}
+
+.bg_uw_rightBarBg.sapUiVlt{
+    background-image: -moz-linear-gradient(top, #B4E5E5, #B6CBD5);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #B4E5E5), color-stop(1, #B6CBD5));
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#B4E5E5', endColorstr='#B6CBD5', GradientType='0');
+    box-shadow: 0px -5px 5px -2px rgba(0, 0, 0, 0.5), inset 1px 2px 5px -1px rgba(0, 0, 0, 0.2)
+}
+
+
+.bg_detail_rightBar.l_uw_detail_shell_rightBar.sapMBar>div.sapMBarLeft{
+    background-image: -moz-linear-gradient(top, #00A6AA, #00547B);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #00A6AA), color-stop(1, #00547B));
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00A6AA', endColorstr='#00547B', GradientType='0');
+    -moz-box-shadow: 6px -2px 15px gray;
+    -webkit-box-shadow: 6px -2px 15px gray;
+    box-shadow: 6px -2px 15px gray;    
+}
+
+.themes_uw_infoForm.sapUiView{
+    width: 100%;
+    background: #008DC4;
+    color: white;
+    min-height: 130px;
+    display: table;
+}
+
+.border_uw_inforForm_right.themes_uw_infoForm.sapUiView{
+    border-left: 1px solid white;
+}
+
+/* ======================================================================== */
+/* @Adam shadow*/
+/* ======================================================================== */
+.shadow_login_input{
+    -webkit-box-shadow: inset 0 -0.0625em #dddddd;
+    box-shadow: inset 0 -0.0625em #dddddd;
+}
+
+.shadow_login_btn{
+    box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.5), inset 0px 1px 0px 0px rgba(255, 255, 255, 0.2);
+}
+
+/* ======================================================================== */
+/* @Adam font*/
+/* ======================================================================== */
+.fontColor_login_input{
+    color: #666666
+}
+
+.font_uw_infoForm .sapMTextLineClamp{
+    font-size: 13px;
+    font-style: italic;
+}
+
+.font_uw_infoValue.sapMLabel{
+    font-size: 1.4rem;
+}
+
+.font_userName.sapMLabel.sapMLabelTBHeader{
+    font-size: 14px;
+}
+
+.fontIcon_iconPage_Tile .sapMLabelIco{
+    font-size: 26px;
+    color: #007CC0;
+    line-height: 26px;
+}
+
+.fontIcon_iconPage_Tile .sapSuiteTileCntContent{
+    text-align: center;
+}
+
+.font_app_title.sapMLabel{
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.themes_uw_infoForm label{
+    color: white;
+}
+
+/* ======================================================================== */
+/* @Adam state*/
+/* ======================================================================== */
+.sapMDialog.state_login_failed>header.sapMDialogTitle>.sapMBarMiddle>.sapMBarPH>.sapMLabel{
+    color: #E90A09;
+}
+
+.l_detail_section_list>ul>li.action{
+    background: #D9ECEE;
+} 
+
+.l_detail_section_list>ul>li.action span{
+    color: white;
+}
+
+
+/* ======================================================================== */
+/* @Adam opacity*/
+/* ======================================================================== */
+.themes_op_8{
+    opacity: 0.8;
+}
+
+.themes_op_9{
+    opacity: 0.9;
+}
+
+.themes_op_83{
+    opacity: 0.83;
+}
+
+/* ======================================================================== */
+/* @Edmond login locale select control*/
+/* ======================================================================== */
+.login_locale label.sapMSltLabel {
+    color: grey;
+}
+/* ======================================================================== */
+/* @Edmond temporary solution start*/
+/* ======================================================================== */
+.l_changePass_btn.sapMBtn {
+    background-color: #F7F7F7;
+    color: black;
+}
+.l_changePass_btn.sapMBtn:not(.sapMBtnDisabled)>div.sapMBtnInner.sapMBtnEmphasized.sapMBtnActive {
+    background-color: #F7F7F7;
+    border-color: #F7F7F7;
+    color: black;
+}
+
+.l_changePass_btn.sapMBtn:hover>.sapMBtnHoverable.sapMBtnEmphasized:not(.sapMBtnActive) {
+    background-color: #F7F7F7;
+    border-color: #F7F7F7;
+    color: black;
+}
+
+.l_changePass_btn div.sapMBtnInner.sapMBtnEmphasized,
+.l_changePass_btn div.sapMBtnInner.sapMBtnEmphasized:hover  {
+    background-image: none;
+    background-color: #F7F7F7;
+    border-color: #F7F7F7;
+    color: #000;
+    text-shadow: 0 1px 0 rgba(0,0,0,0.5);
+}
+/* ======================================================================== */
+/* @Edmond temporary solution end*/
+/* ======================================================================== */
+
+/* ======================================================================== */
+/* @Adam Button*/
+/* ======================================================================== */
+
+.btn_uw_rightBar_btn.sapMBarChild.sapMBtn:hover>.sapMBtnInner,
+.btn_uw_rightBar_btn.sapMBarChild.sapMBtn:active>.sapMBtnInner,
+.btn_uw_rightBar_btn.sapMBarChild.sapMBtn.action>.sapMBtnInner{
+    background: #B4E4E4;
+    border-radius: initial;
+    margin: 0px;
+    outline: none;
+}
+
+/* ======================================================================== */
+/* @Christine notes content*/
+/* ======================================================================== */
+.bg_notes_icontab>.sapMITBContainerContent {
+    background-color: #fff;
+}
+.bg_notes_icontab .sapMITBHead .sapMITBSelected {
+    background-color: #fff;
+}
+.bg_notes_upload .sapUiBtnS.sapUiBtnNorm.sapUiBtnStd {
+    background-color: transparent;
+}
+.bg_notes_tooltip>div:first-child {
+    border-color: #f2f2f2;
+    background-color: #fff
+}
+.bg_notes_icontab .sapMITBHead .sapMITBSelected .sapMITBText {
+    color: #1662EA;
+}
+
+/* ======================================================================== */
+/* @Adam test config*/
+/* ======================================================================== */
+.sapMPage.test_block_A{
+    background: black;
+    height: 250px;
+    color: white;
+}
+
+.sapMPage.test_block_B{
+    background: green;
+    height: 250px;
+    color: white;
+}
+
+.sapMPage.test_block_C{
+    background: gray;
+    height: 100px;
+    color: white;
+}
+
+.sapMPage.test_block_D{
+    background: blue;
+    height: 120px;
+    color: white;
+}
+
+
+.sapMPage.test_block_A label.sapMLabel,
+.sapMPage.test_block_B label.sapMLabel,
+.sapMPage.test_block_C label.sapMLabel,
+.sapMPage.test_block_D label.sapMLabel{
+    color: white;
+}
+
+/* ======================================================================== */
+/* @Elaine oShell detail page*/
+/* ======================================================================== */
+.font_uw_detailPage_header .sapMText {
+    font-size: 1rem;
+}
+
+.font_detailPage_header_number.sapMText {
+    font-weight: bold;
+}
+
+/* ======================================================================== */
+/* @Elaine Case list*/
+/* ======================================================================== */
+.font_referredInfo_white.sapSuiteHdrCntr .sapMLabel {
+   color: #fff;
+}
+
+.l_caseList .sapUiCompFilterBar {
+    background-color: #ddedf0;
+}
+
+.l_itemsTable>table>tbody>tr>td:first-child {
+    border-right: 1px solid #e5e5e5;
+}
+
+/* ======================================================================== */
+/* @Ealine referred info section*/
+/* ======================================================================== */
+.font_referredInfo_white.sapSuiteHdrCntr .sapMLabel {
+   color: #fff;
+}
+
+.color_referredInfo_blue.sapSuiteHdrCntr {
+    background-color: #2290c7;
+}
+
+/* ======================================================================== */
+/* @Edmond uwItems filterbar*/
+/* ======================================================================== */
+.uwItemList_filter_bar .sapUiCompFilterBar {
+    background-color: #ddeff1;
+}
+
+/* ======================================================================== */
+/* @Edmond uwItems table*/
+/* ======================================================================== */
+.l_uwItems_layout {
+
+}
+
+.icon_uwItemType {
+    color: #888;
+}
+
+.uwItemList_table tr td .uwItemList_actionBtn.sapMBtn .sapMBtnInner {
+    border: none;
+    border-left: 1px solid white;
+}
+
+.uwItemList_table tr td .uwItemList_actionBtn.sapMBtn {
+    height: 2rem;
+    padding: 0;
+}
+
+.btn_lite.sapMBtn{
+    padding: 0px;
+    height: 2rem;
+}
+
+.btn_lite.sapMBtn>.sapMBtnInner,
+.btn_lite.sapMBtn:active>.sapMBtnInner,
+.btn_lite.sapMBtn:focus>.sapMBtnInner,
+.btn_lite.sapMBtn:visited>.sapMBtnInner{
+    border: none;
+    background: none;
+    border-radius: none;
+    outline: none
+}
+.btn_lite.sapMBtn:hover>.sapMBtnInner{
+    background: none;
+    text-shadow: 0 1px 0 #000000;
+    outline: none;
+}
+
+.btn_lite.sapMBtn:hover>.sapMBtnInner span{
+    background: none;
+    color: #008DC4;
+    text-shadow: 0 1px 0 #F5F5F5;
+    outline: none;
+}
+
+/* ======================================================================== */
+/* @Jocelyn Tab Strip*/
+/* ======================================================================== */
+.bg_uw_tabStrip .sapMITBNotScrollable.sapMITH {
+    background-color: #DDEFF1;
+}
+
+.bg_uw_tabStrip .sapMITBContent {
+    background-color: #F3F8F9;
+}
+.bg_uw_tabStrip .sapMITBContainerContent {
+    border-bottom: none;
+}
+
+/* ======================================================================== */
+/* @Jocelyn uwItems detail page bar*/
+/* ======================================================================== */
+.bg_button_orange .sapMBtnInner.sapMBtnDefault {
+    background-color: #e17b24;
+    background-image: none;
+}
+
+.bg_button_orange.sapMBtn:hover>.sapMBtnHoverable {
+    background-color: #e17b24;
+    background-image: none;
+}
+
+.bg_button_green .sapMBtnInner.sapMBtnDefault {
+    background-color: #007833;
+    background-image: none;
+}
+
+.bg_button_green.sapMBtn:hover>.sapMBtnHoverable {
+    background-color: #007833;
+    background-image: none;
+}
+
+.bg_button_blue .sapMBtnInner.sapMBtnDefault {
+    background-color: #007cc0;
+    background-image: none;
+}
+
+.bg_button_blue.sapMBtn:hover>.sapMBtnHoverable {
+    background-color: #007cc0;
+    background-image: none;
+}
+
+.bg_button_red .sapMBtnInner.sapMBtnDefault {
+    background-color: #cc1919;
+    background-image: none;
+}
+
+.bg_button_red.sapMBtn:hover>.sapMBtnHoverable {
+    background-color: #cc1919;
+    background-image: none;
+}
+
+.fontIcon_button .sapMBtnIcon {
+    line-height: 1.8rem;
+    width: 2rem;
+}
+
+.fontIcon_button_white .sapMBtnIcon {
+    color: white;
+    font-size: 1.2rem;
+}
+
+.fontIcon_button_size .sapMBtnIcon {
+    font-size: 1.6rem;
+}
+
+.bg_uwItemsBar.sapMBar {
+    background-color: #F3F8F9;
+}
+
+.fontIcon_button .sapMBtnInner {
+    min-width: 2rem;
+    height: 2rem;
+}
+
+/* ======================================================================== */
+/* @Jocelyn history info template*/
+/* ======================================================================== */
+.bg_uw_referralDetails_form {
+    background-color: #F2F2F2;
+}
+
+/* ======================================================================== */
+/* @Jocelyn check list*/
+/* ======================================================================== */
+.font_overView_checkList_completeStatus .sapMText {
+    color: #999999 !important;
+    font-style: italic;
+}
+
+/* ======================================================================== */
+/* @Edmond uwItem basic info*/
+/* ======================================================================== */
+.uwItem_basic_info .l_formInfo_list .formInfo_lab.sapMLabel {
+    color: black;
+}
+
+/* ======================================================================== */
+/* @Edmond submit case success dialog*/
+/* ======================================================================== */
+.submitSuccessDialog .sapMLabel {
+    color: black;
+}
